@@ -3,8 +3,9 @@ import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import Banner from '../components/Banner';
 import NavBar from '../components/NavBar';
-import Destacados from '../components/MasVendidos'; 
+import Destacados from '../components/MasVendidos';
 import Banner2 from '../components/Banner2';
+import Rebajas from '../components/Rebajas';
 
 const HomeScreen = ({ navigation }) => {
   return (
@@ -13,6 +14,7 @@ const HomeScreen = ({ navigation }) => {
         <Banner />
         <Destacados navigation={navigation} />
         <Banner2 />
+        <Rebajas  navigation={navigation}/>
       </ScrollView>
       
       <NavBar navigation={navigation} />

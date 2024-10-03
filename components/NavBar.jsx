@@ -19,7 +19,7 @@ const NavBar = ({ navigation }) => {
       <TouchableOpacity style={styles.tab}>
         <Feather name="shopping-bag" size={18} color="#555" />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.tab}>
+      <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Login')}>
         <Feather name="user" size={18} color="#555" />
       </TouchableOpacity>
     </View>
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   menuText: {
     fontSize: 14,
     color: '#555',
-    fontFamily: 'Montserrat',
+    fontFamily: 'WorkSans-Medium',
   },
 });
 

@@ -9,16 +9,20 @@ import Header from './components/Header';
 import 'react-native-gesture-handler';
 import RopaMenuScreen from './screens/RopaMenuScreen';
 import CalzadoMenuScreen from './screens/CalzadoMenuScreen';
-
-
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const Stack = createNativeStackNavigator();
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'Montserrat': require('./assets/fonts/Montserrat-Regular.ttf'),
-    "MontserratBold": require('./assets/fonts/Montserrat-Bold.ttf'),
-    "MontserratSemiBold": require('./assets/fonts/Montserrat-SemiBold.ttf'),
+    "Figtree": require('./assets/fonts/Figtree-Regular.ttf'),
+    "Figtree-Medium": require('./assets/fonts/Figtree-Medium.ttf'),
+    "Figtree-SemiBold": require('./assets/fonts/Figtree-SemiBold.ttf'),
+    "Figtree-Bold": require('./assets/fonts/Figtree-Bold.ttf'),
+    "WorkSans": require('./assets/fonts/WorkSans-Regular.ttf'),
+    "WorkSans-Medium": require('./assets/fonts/WorkSans-Medium.ttf'),
+    "WorkSans-SemiBold": require('./assets/fonts/WorkSans-SemiBold.ttf'),
   });
 };
 
@@ -66,14 +70,24 @@ const App = () => {
         <Stack.Screen 
           name="RopaMenuScreen" 
           component={RopaMenuScreen} 
-          options={{ header: () => <Header /> }} 
+          options={{ headerShown: false }} 
         />
         <Stack.Screen 
           name="CalzadoMenuScreen" 
           component={CalzadoMenuScreen} 
-          options={{ header: () => <Header /> }} 
+          options={{ headerShown: false }} 
         />
-
+        <Stack.Screen 
+          name="Login" 
+          component={LoginScreen} 
+          options={{ headerShown: false }} 
+        />
+      
+      <Stack.Screen 
+          name="Register" 
+          component={RegisterScreen} 
+          options={{ headerShown: false }} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

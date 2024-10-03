@@ -11,8 +11,9 @@ const MenuScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.menuNew}>Novedades</Text>
-        <Text style={styles.menuDenim}>Edición Denim</Text>
+        <Text style={styles.menuNew}>NEW IN</Text>
+        <Text style={styles.menuDenim}>Edición Invierno 24</Text>
+        <Text style={styles.menuMasVendido}>Lo más vendido</Text>
         
         <TouchableOpacity onPress={() => navigateToCategory('RopaMenuScreen')}>
           <View style={styles.categoryContainer}>
@@ -35,6 +36,7 @@ const MenuScreen = ({ navigation }) => {
         </TouchableOpacity>
 
         <Text style={styles.menuOffers}>Rebajas</Text>
+        <Text style={styles.menuOffers2}>Hasta 50% de descuento</Text>
       </View>
       <NavBar navigation={navigation} /> 
     </View>
@@ -63,30 +65,43 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: '#de1b35',
     textTransform: 'uppercase',
-    fontFamily: 'MontserratSemiBold',  
+    fontFamily: 'Figtree-SemiBold',  
     fontWeight: '500',
   },
   menuCategory: {
-    fontSize: 17,
+    fontSize: 16,
     textTransform: 'uppercase',
-    fontFamily: 'MontserratSemiBold', 
+    fontFamily: 'Figtree-Medium', 
     fontWeight: '100',
   },
   menuNew: {
-    fontSize: 19,
-    fontWeight: '500',
+    fontSize: 18,
     textTransform: 'uppercase',
     marginBottom: 10,
-    fontFamily: 'Montserrat', 
+    fontFamily: 'Figtree-SemiBold', 
+    
   },
   menuDenim: {
-    fontSize: 19,
-    fontWeight: '900',
+    fontSize: 18,
     textTransform: 'uppercase',
-    marginBottom: 30,
-    fontFamily: 'Montserrat', 
-    fontWeight: '500',
-  }
+    marginBottom: 10,
+    fontFamily: 'Figtree-SemiBold', 
+    
+  },
+  menuMasVendido: {
+    fontSize: 18,
+    textTransform: 'uppercase',
+    marginBottom: 36,
+    fontFamily: 'Figtree-SemiBold', 
+    
+  },
+  menuOffers2: {
+    fontSize: 13,
+    marginTop: 4,
+    color: '#909090',
+    fontFamily: 'Figtree',  
+
+  },
 });
 
 export default MenuScreen;

@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: height * 0.5,
     marginBottom: 40,
-    marginTop: 40
+    marginTop: 80
   },
   image: {
     width: '100%',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute', 
-    bottom: '20%', 
+    bottom: '25%', 
     left: 20, 
     right: 20, 
     alignItems: 'center', 
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   bannerText: {
     fontSize: 28,
     color: '#f3f3f3', 
-    fontFamily: 'MontserratBold',
+    fontFamily: 'Figtree-Bold',
     textTransform: 'uppercase',
   },
   button: {
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'black',
     textTransform: 'uppercase',
-    fontFamily: 'MontserratBold',
+    fontFamily: 'Figtree-Bold',
   },
 });
 

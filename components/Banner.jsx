@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   bannerText: {
     fontSize: 35,
     color: '#f3f3f3', 
-    fontFamily: 'MontserratBold',
+    fontFamily: 'Figtree-Bold',
     textTransform: 'uppercase',
   },
   button: {
@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'black',
     textTransform: 'uppercase',
-    fontFamily: 'MontserratBold',
+    fontFamily: 'Figtree-Bold',
+    fontSize: 15,
   },
 });
 

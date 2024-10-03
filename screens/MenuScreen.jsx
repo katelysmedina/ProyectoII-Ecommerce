@@ -38,7 +38,7 @@ const MenuScreen = ({ navigation }) => {
         <Text style={styles.menuOffers}>Rebajas</Text>
         <Text style={styles.menuOffers2}>Hasta 50% de descuento</Text>
       </View>
-      <NavBar navigation={navigation} /> 
+      <NavBar navigation={navigation} activeScreen="Menu" />
     </View>
   );
 };

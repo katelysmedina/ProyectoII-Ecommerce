@@ -17,7 +17,7 @@ const HomeScreen = ({ navigation }) => {
         <Rebajas  navigation={navigation}/>
       </ScrollView>
       
-      <NavBar navigation={navigation} />
+      <NavBar navigation={navigation} activeScreen="Home" />
     </View>
   );
 };

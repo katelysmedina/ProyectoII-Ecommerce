@@ -39,12 +39,14 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 10,
         marginLeft: 10,
-        fontFamily: 'Montserrat-SemiBold',
+        fontFamily: 'WorkSans-Medium',
+        
       },
+
       productPrice: {
         fontSize: 14,
-        fontFamily: 'Montserrat-SemiBold',
-        color: '#de1b35',
+        fontFamily: 'Figtree-Medium',
+        color: 'black',
         marginLeft: 10,
       },
     
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
       },
 
       productConDescuento: {
-        color: 'black',
+        color: '#de1b35',
         marginBottom: 100,
       }
 })

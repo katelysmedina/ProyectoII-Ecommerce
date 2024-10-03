@@ -23,10 +23,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 17,
-    fontWeight: '500',
     marginBottom: 10,
     textTransform: 'uppercase',
-    fontFamily: 'Montserrat',
+    fontFamily: 'Figtree-SemiBold',
     marginLeft: 20,
   }
 });

@@ -17,12 +17,12 @@ const CalzadoMenuScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+<View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
           <Feather name="chevron-left" size={18} color="black" />
         </TouchableOpacity>
-        <Text style={styles.headerText}>Menú</Text>
+        <Text style={styles.headerText}>Zapatos</Text>
       </View>
       <View style={styles.textContainer}>
         {ropaCategories.map((category, index) => (
@@ -51,15 +51,15 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   headerText: {
-    fontFamily: 'Montserrat', 
+    fontFamily: 'Figtree-SemiBold', 
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: '500',
     marginLeft: 10,
     textTransform: 'uppercase',
   },
   textContainer: {
     alignItems: 'flex-start',
-    marginTop: 10, 
+    marginTop: 20, 
   },
   categoryContainer: {
     flexDirection: 'row',
@@ -69,11 +69,25 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   menuCategory: {
-    fontSize: 16,
+    fontSize: 15,
     textTransform: 'uppercase',
-    fontFamily: 'Montserrat', 
+    fontFamily: 'Figtree-Medium', 
     fontWeight: '500',
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between', 
+    marginTop: 20,
+    marginBottom: 30,
+  },
+  headerText: {
+    fontFamily: 'Figtree-Bold', 
+    fontSize: 15,
+    fontWeight: 'bold',
+    textAlign: 'center', 
+    flex: 1, 
+  }, 
 });
 
 export default CalzadoMenuScreen;

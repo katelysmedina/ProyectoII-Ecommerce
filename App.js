@@ -11,6 +11,9 @@ import RopaMenuScreen from './screens/RopaMenuScreen';
 import CalzadoMenuScreen from './screens/CalzadoMenuScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ConfigurationScreen from './screens/ConfigurationScreen'
+import MisComprasScreen from './screens/MisComprasScreen';
+import DatosPersonalesScreen from './screens/DatosPersonalesScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -88,6 +91,26 @@ const App = () => {
           component={RegisterScreen} 
           options={{ headerShown: false }} 
         />
+
+      <Stack.Screen 
+          name="Configuration" 
+          component={ConfigurationScreen} 
+          options={{ headerShown: false }} 
+        />
+
+        
+      <Stack.Screen 
+          name="MisCompras" 
+          component={MisComprasScreen} 
+          options={{ headerShown: false }} 
+        />
+
+      <Stack.Screen 
+          name="DatosPersonales" 
+          component={DatosPersonalesScreen} 
+          options={{ headerShown: false }} 
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

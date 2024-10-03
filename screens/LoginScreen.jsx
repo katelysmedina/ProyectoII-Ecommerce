@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import NavBar from '../components/NavBar';
 
 const LoginScreen = ({ navigation }) => { 
   const [email, setEmail] = useState('');
@@ -9,6 +10,7 @@ const LoginScreen = ({ navigation }) => {
   const handleLogin = () => {
     console.log('Email:', email);
     console.log('Password:', password);
+    navigation.navigate('Configuration');
   };
 
   return (
@@ -44,6 +46,7 @@ const LoginScreen = ({ navigation }) => {
           <Text style={styles.registerText}>Regístrate</Text>
         </TouchableOpacity>
       </View>
+      <NavBar navigation={navigation} activeScreen="Login" />
     </View>
   );
 };
@@ -65,7 +68,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Figtree-SemiBold',
     fontSize: 25,
     marginBottom: 20,
-    marginTop: -90,
+    marginTop: -110,
   },
   input: {
     height: 50,
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Figtree-SemiBold',
     fontSize: 14,
     marginLeft: 4,
-    fontWeight: 200,
+    fontWeight: '200', 
   },
 });
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import NavBar from '../components/NavBar';
 
 const RegisterScreen = ({ navigation }) => { 
   const [email, setEmail] = useState('');
@@ -16,6 +17,9 @@ const RegisterScreen = ({ navigation }) => {
     console.log('Password:', password);
     console.log('Confirm Password:', confirmPassword);
     console.log('Selected Options:', selectedOptions);
+    
+  
+    navigation.navigate('Configuration');
   };
 
   const toggleOption = (option) => {
@@ -67,8 +71,9 @@ const RegisterScreen = ({ navigation }) => {
         <Text style={styles.buttonText}>Crear cuenta</Text>
       </TouchableOpacity>
       <View style={styles.footer}>
-        {/* Aquí puedes añadir más elementos si es necesario */}
+        
       </View>
+      <NavBar navigation={navigation} activeScreen="Login" />
     </View>
   );
 };
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Figtree-SemiBold',
     fontSize: 25,
     marginBottom: 20,
-    marginTop: -7,
+    marginTop: -18,
   },
   input: {
     height: 50,

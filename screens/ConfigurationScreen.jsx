@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingVertical: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
   },
   closeButton: {
     position: 'absolute',

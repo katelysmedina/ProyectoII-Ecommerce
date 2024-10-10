@@ -3,17 +3,17 @@ import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-nativ
 import Feather from '@expo/vector-icons/Feather';
 import NavBar from '../components/NavBar';
 
-const DatosPersonalesScreen = ({ navigation }) => {
-  const [nombre, setNombre] = useState('');
-  const [apellidos, setApellidos] = useState('');
-  const [telefono, setTelefono] = useState('');
-  
-  const prefijo = '+52';
+const DireccionesGuardadasScreen = ({ navigation }) => {
+  const [direccion, setDireccion] = useState('');
+  const [codigoPostal, setCodigoPostal] = useState('');
+  const [estado, setEstado] = useState('');
+  const [ciudad, setCiudad] = useState('');
 
   const handleSave = () => {
-    console.log('Nombre:', nombre);
-    console.log('Apellidos:', apellidos);
-    console.log('Teléfono:', `${prefijo} ${telefono}`); 
+    console.log('Dirección:', direccion);
+    console.log('Código Postal:', codigoPostal);
+    console.log('Estado:', estado);
+    console.log('Ciudad:', ciudad);
   };
 
   return (
@@ -21,39 +21,37 @@ const DatosPersonalesScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
         <Feather name="chevron-left" size={24} color="black" />
       </TouchableOpacity>
-      <Text style={styles.title}>Datos personales</Text>
+      <Text style={styles.title}>Direcciones guardadas</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="Nombre"
+        placeholder="Calle y número"
         placeholderTextColor="#aaa" 
-        value={nombre}
-        onChangeText={setNombre}
+        value={direccion}
+        onChangeText={setDireccion}
       />
       <TextInput
         style={styles.input}
-        placeholder="Apellidos"
+        placeholder="Código Postal"
         placeholderTextColor="#aaa" 
-        value={apellidos}
-        onChangeText={setApellidos}
+        value={codigoPostal}
+        onChangeText={setCodigoPostal}
+        keyboardType="numeric"
       />
-
-      {/* Contenedor para prefijo y número de teléfono */}
-      <View style={styles.phoneContainer}>
-        <TextInput
-          style={styles.prefixInput}
-          value={prefijo}
-          editable={false}
-        />
-        <TextInput
-          style={styles.phoneInput}
-          placeholder="Número de teléfono"
-          placeholderTextColor="#aaa"
-          value={telefono}
-          onChangeText={setTelefono}
-          keyboardType="phone-pad"
-        />
-      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Estado"
+        placeholderTextColor="#aaa" 
+        value={estado}
+        onChangeText={setEstado}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Ciudad"
+        placeholderTextColor="#aaa"
+        value={ciudad}
+        onChangeText={setCiudad}
+      />
 
       <TouchableOpacity style={styles.button} onPress={handleSave}>
         <Text style={styles.buttonText}>Guardar</Text>
@@ -91,33 +89,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 4,
     marginBottom: 10,
-    fontFamily: 'Figtree-Regular', 
+    fontFamily: 'Figtree-Regular',
     fontSize: 14,
-  },
-  phoneContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 25,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 4,
-    overflow: 'hidden',
-  },
-  prefixInput: {
-    height: 50,
-    paddingHorizontal: 10,
-    fontSize: 14,
-    fontFamily: 'Figtree-Regular', 
-    color: '#000',
-    backgroundColor: '#f0f0f0', 
-    width: 50, 
-  },
-  phoneInput: {
-    height: 50,
-    flex: 1,
-    paddingHorizontal: 10,
-    fontSize: 14,
-    fontFamily: 'Figtree-Regular', 
   },
   button: {
     backgroundColor: '#000000',
@@ -134,4 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DatosPersonalesScreen;
+export default DireccionesGuardadasScreen;

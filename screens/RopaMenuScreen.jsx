@@ -8,6 +8,7 @@ const RopaMenuScreen = ({ navigation }) => {
     'Lo más vendido', 
     'Edición Denim', 
     'Cazadoras y abrigos', 
+    'Blazers', 
     'Jeans', 
     'Pantalones', 
     'Suéteres', 

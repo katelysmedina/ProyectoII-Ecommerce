@@ -14,6 +14,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import ConfigurationScreen from './screens/ConfigurationScreen'
 import MisComprasScreen from './screens/MisComprasScreen';
 import DatosPersonalesScreen from './screens/DatosPersonalesScreen';
+import DireccionesGuardadasScreen from './screens/DireccionesGuardadasScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -108,6 +109,12 @@ const App = () => {
       <Stack.Screen 
           name="DatosPersonales" 
           component={DatosPersonalesScreen} 
+          options={{ headerShown: false }} 
+        />
+
+      <Stack.Screen 
+          name="DireccionesGuardadas" 
+          component={DireccionesGuardadasScreen} 
           options={{ headerShown: false }} 
         />
 

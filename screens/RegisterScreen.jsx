@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
     paddingVertical: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
   },
   closeButton: {
     position: 'absolute',
@@ -105,6 +106,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 4,
     marginBottom: 10,
+    fontFamily: 'Figtree-Regular', 
+    fontSize: 14,
   },
   button: {
     backgroundColor: '#000000',

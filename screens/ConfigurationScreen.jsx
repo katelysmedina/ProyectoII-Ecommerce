@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import NavBar from '../components/NavBar';
+import CustomModal from '../components/CustomModal';
+import TerminosCondiciones from './staticfiles/terminos-condiciones';
+import PoliticaPrivacidad from './staticfiles/politica-privacidad';
+import PoliticaSeguridad from './staticfiles/politica-seguridad';
 
 const ConfigurationScreen = ({ navigation }) => {
+  const [isTerminosVisible, setTerminosVisible] = useState(false)
+  const [isPoliticasVisible, setPoliticasVisible] = useState(false)
+  const [isSeguridadVisible, setSeguridadVisible] = useState(false)
+
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
@@ -54,21 +63,41 @@ const ConfigurationScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       <View style={styles.row}>
-        <TouchableOpacity style={styles.rowOption} onPress={() => navigation.navigate('TerminosCondiciones')}>
+        <TouchableOpacity style={styles.rowOption} onPress={() => setTerminosVisible(true)}>
           <Text style={styles.optionText1}>Términos y condiciones</Text>
         </TouchableOpacity>
         <Text style={styles.separator}>•</Text>
-        <TouchableOpacity style={styles.rowOption} onPress={() => navigation.navigate('PoliticaPrivacidad')}>
+        <TouchableOpacity style={styles.rowOption} onPress={() => setPoliticasVisible(true)}>
           <Text style={styles.optionText1}>Política de privacidad</Text>
         </TouchableOpacity>
         <Text style={styles.separator}>•</Text>
       </View>
 
-      <TouchableOpacity style={styles.option} onPress={() => navigation.navigate('PoliticaSeguridad')}>
+      <TouchableOpacity style={styles.rowOption} onPress={() => setSeguridadVisible(true)}>
         <Text style={styles.optionText1}>Política de seguridad</Text>
       </TouchableOpacity>
 
       <NavBar navigation={navigation} activeScreen="Login" />
+
+      <CustomModal 
+        isOpenModal={isTerminosVisible}
+        titulo={'Términos y condiciones'}
+        data={TerminosCondiciones}
+        closeModal={() => setTerminosVisible(!isTerminosVisible)}
+      />
+      <CustomModal 
+        isOpenModal={isPoliticasVisible}
+        titulo={'Política de privacidad'}
+        data={PoliticaPrivacidad}
+        closeModal={() => setPoliticasVisible(!isPoliticasVisible)}
+      />
+      <CustomModal 
+        isOpenModal={isSeguridadVisible}
+        titulo={'Política de seguridad'}
+        data={PoliticaSeguridad}
+        closeModal={() => setSeguridadVisible(!isSeguridadVisible)}
+      />
+
     </View>
   );
 };
@@ -135,6 +164,7 @@ const styles = StyleSheet.create({
   rowOption: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 10
   },
   separator: {
     marginHorizontal: 5,

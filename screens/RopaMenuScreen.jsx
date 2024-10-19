@@ -19,7 +19,8 @@ const RopaMenuScreen = ({ navigation }) => {
   ];
 
   const navigateToCategory = (category) => {
-    console.log(category); 
+    
+    navigation.navigate('ProductList', { category });
   };
 
   return (

@@ -3,9 +3,9 @@ import { View, StyleSheet, Text } from 'react-native';
 import Carrusel from './CarruselProductos';
 
 const products = [
-  { id: '1', name: 'Abrigo largo con cinturón', price: 'MXN 1299.00', image: require('../assets/img/ABR1_1.jpeg') },
-  { id: '2', name: 'Pantalón pierna ancha con pinzas', price: 'MXN 789.00', image: require('../assets/img/PAN1_1.jpeg') },
-  { id: '3', name: 'Suéter de cuello alto', price: 'MXN 499.00', image: require('../assets/img/SUE3_3.jpeg') },
+  { id: '1', name: 'Abrigo con cinturón de lazo', price: 'MXN 1299.00', image: require('../assets/img/ABR1_1.jpeg') },
+  { id: '2', name: 'Pantalón de vestir con pliegues', price: 'MXN 789.00', image: require('../assets/img/PAN1_1.jpeg') },
+  { id: '3', name: 'Suéter cuello alto', price: 'MXN 499.00', image: require('../assets/img/SUE3_3.jpeg') },
 ];
 
 const MasVendidos = ({ navigation }) => {

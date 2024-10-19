@@ -11,10 +11,13 @@ import RopaMenuScreen from './screens/RopaMenuScreen';
 import CalzadoMenuScreen from './screens/CalzadoMenuScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import ConfigurationScreen from './screens/ConfigurationScreen'
+import ConfigurationScreen from './screens/ConfigurationScreen';
 import MisComprasScreen from './screens/MisComprasScreen';
 import DatosPersonalesScreen from './screens/DatosPersonalesScreen';
 import DireccionesGuardadasScreen from './screens/DireccionesGuardadasScreen';
+import ProductList from './components/ProductList'; 
+import { ProductProvider } from './components/ProductProvider'; 
+import CatalogoScreen from './screens/CatalogoScreen'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -53,73 +56,78 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-          options={{ 
-            header: () => <Header />, 
-            animationEnabled: false
-          }} 
-        />
-        <Stack.Screen 
-          name="Menu" 
-          component={MenuScreen} 
-          options={{ 
-            header: () => <Header />, 
-            animationEnabled: false 
-          }} 
-        />
-        <Stack.Screen 
-          name="RopaMenuScreen" 
-          component={RopaMenuScreen} 
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="CalzadoMenuScreen" 
-          component={CalzadoMenuScreen} 
-          options={{ headerShown: false }} 
-        />
-        <Stack.Screen 
-          name="Login" 
-          component={LoginScreen} 
-          options={{ headerShown: false }} 
-        />
-      
-      <Stack.Screen 
-          name="Register" 
-          component={RegisterScreen} 
-          options={{ headerShown: false }} 
-        />
-
-      <Stack.Screen 
-          name="Configuration" 
-          component={ConfigurationScreen} 
-          options={{ headerShown: false }} 
-        />
-
-        
-      <Stack.Screen 
-          name="MisCompras" 
-          component={MisComprasScreen} 
-          options={{ headerShown: false }} 
-        />
-
-      <Stack.Screen 
-          name="DatosPersonales" 
-          component={DatosPersonalesScreen} 
-          options={{ headerShown: false }} 
-        />
-
-      <Stack.Screen 
-          name="DireccionesGuardadas" 
-          component={DireccionesGuardadasScreen} 
-          options={{ headerShown: false }} 
-        />
-
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ProductProvider> 
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen 
+            name="Home" 
+            component={HomeScreen} 
+            options={{ 
+              header: () => <Header />, 
+              animationEnabled: false
+            }} 
+          />
+          <Stack.Screen 
+            name="Menu" 
+            component={MenuScreen} 
+            options={{ 
+              header: () => <Header />, 
+              animationEnabled: false 
+            }} 
+          />
+          <Stack.Screen 
+            name="RopaMenuScreen" 
+            component={RopaMenuScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="CalzadoMenuScreen" 
+            component={CalzadoMenuScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="Catalogo"    
+            component={CatalogoScreen} 
+            options={{ headerShown: false }}  
+          />
+          <Stack.Screen 
+            name="Login" 
+            component={LoginScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="Register" 
+            component={RegisterScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="Configuration" 
+            component={ConfigurationScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="MisCompras" 
+            component={MisComprasScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="DatosPersonales" 
+            component={DatosPersonalesScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="DireccionesGuardadas" 
+            component={DireccionesGuardadasScreen} 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="ProductList" 
+            component={ProductList} 
+            options={{ headerShown: false }} 
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ProductProvider>
   );
 };
 

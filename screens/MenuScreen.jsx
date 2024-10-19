@@ -5,8 +5,9 @@ import Feather from '@expo/vector-icons/Feather';
 
 const MenuScreen = ({ navigation }) => {
   const navigateToCategory = (category) => {
-    navigation.navigate(category); 
+    navigation.navigate('ProductList', { category });
   };
+  
 
   return (
     <View style={styles.container}>
@@ -15,25 +16,26 @@ const MenuScreen = ({ navigation }) => {
         <Text style={styles.menuDenim}>Edición Invierno 24</Text>
         <Text style={styles.menuMasVendido}>Lo más vendido</Text>
         
-        <TouchableOpacity onPress={() => navigateToCategory('RopaMenuScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('RopaMenuScreen')}>
           <View style={styles.categoryContainer}>
-            <Text style={styles.menuCategory}>Ropa</Text>
-            <Feather name="chevron-right" size={17} color="black" />
+          <Text style={styles.menuCategory}>Ropa</Text>
+          <Feather name="chevron-right" size={17} color="black" />
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigateToCategory('CalzadoMenuScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CalzadoMenuScreen')}>
           <View style={styles.categoryContainer}>
-            <Text style={styles.menuCategory}>Zapatos</Text>
-            <Feather name="chevron-right" size={17} color="black" />
+          <Text style={styles.menuCategory}>Zapatos</Text>
+          <Feather name="chevron-right" size={17} color="black" />
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigateToCategory('Bolsos')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ProductList', { category: 'Bolsos' })}>
           <View style={styles.categoryContainer}>
-            <Text style={styles.menuCategory}>Bolsos</Text>
+          <Text style={styles.menuCategory}>Bolsos</Text>
           </View>
         </TouchableOpacity>
+
 
         <Text style={styles.menuOffers}>Rebajas</Text>
         <Text style={styles.menuOffers2}>Hasta 50% de descuento</Text>

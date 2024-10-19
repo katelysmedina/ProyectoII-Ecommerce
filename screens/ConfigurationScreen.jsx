@@ -170,6 +170,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     fontSize: 11,
     fontFamily: 'WorkSans-Regular',
+    marginBottom: -10,
+
   },
 });
 

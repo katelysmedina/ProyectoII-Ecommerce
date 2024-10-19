@@ -3,7 +3,7 @@ Política de Privacidad
 
 En Ophelia, respetamos su privacidad y nos comprometemos a proteger la información personal que recopilamos. Esta Política de Privacidad describe cómo recogemos, utilizamos y protegemos su información cuando utiliza nuestra aplicación web. Al utilizar Ophelia, usted acepta las prácticas descritas en esta política.
 
-1. Información que Recopilamos
+1. Información que recopilamos
 Podemos recopilar los siguientes tipos de información cuando utiliza nuestra app:
 
 Información personal: como nombre, dirección de correo electrónico, dirección de envío, número de teléfono, información de pago (tarjetas de crédito o débito), entre otros, cuando se registra o realiza una compra en la app.

@@ -4,7 +4,7 @@ import Feather from '@expo/vector-icons/Feather';
 import NavBar from '../components/NavBar';
 
 const CalzadoMenuScreen = ({ navigation }) => {
-  const ropaCategories = [
+  const calzadoCategories = [
     'Lo más vendido', 
     'Botas',
     'Balerinas',
@@ -13,11 +13,12 @@ const CalzadoMenuScreen = ({ navigation }) => {
   ];
 
   const navigateToCategory = (category) => {
-    console.log(category); 
+    
+    navigation.navigate('ProductList', { category });
   };
 
   return (
-<View style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.navigate('Menu')}>
           <Feather name="chevron-left" size={18} color="black" />
@@ -25,7 +26,7 @@ const CalzadoMenuScreen = ({ navigation }) => {
         <Text style={styles.headerText}>Zapatos</Text>
       </View>
       <View style={styles.textContainer}>
-        {ropaCategories.map((category, index) => (
+        {calzadoCategories.map((category, index) => (
           <TouchableOpacity key={index} onPress={() => navigateToCategory(category)}>
             <View style={styles.categoryContainer}>
               <Text style={styles.menuCategory}>{category}</Text>
@@ -33,7 +34,7 @@ const CalzadoMenuScreen = ({ navigation }) => {
           </TouchableOpacity>
         ))}
       </View>
-      <NavBar navigation={navigation} /> 
+      <NavBar navigation={navigation}  />
     </View>
   );
 };

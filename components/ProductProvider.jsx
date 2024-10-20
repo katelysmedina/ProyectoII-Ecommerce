@@ -6,23 +6,23 @@ export const ProductProvider = ({ children }) => {
   const [productsByCategory, setProductsByCategory] = useState({
     Ropa: {
       'Cazadoras y abrigos': [
-        { id: 1, name: 'Abrigo con cinturón de lazo', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1199.00, image: require('../assets/img/ABR1_1.jpeg'), color: 'Negro' },
-        { id: 2, name: 'Abrigo con cinturón de lazo', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1199.00, image: require('../assets/img/ABR2_1.jpeg'), color: 'Café oscuro' },
-        { id: 3, name: 'Abrigo largo en mezcla con lana', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1599.00, image: require('../assets/img/ABR3_1.jpeg'), color: 'Beige' },
-        { id: 4, name: 'Abrigo largo en mezcla con lana', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1599.00, image: require('../assets/img/ABR4_1.jpeg'), color: 'Negro' },
-        { id: 5, name: 'Abrigo midi soft', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1499.00, image: require('../assets/img/ABR5_1.jpeg'), color: 'Beige' },
-        { id: 6, name: 'Gabardina corta', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 899.00, image: require('../assets/img/CHA1_1.jpeg'), color:'Beige' },
-        { id: 7, name: 'Parka oversized', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1099.00, image: require('../assets/img/CHA2_1.jpeg'), color:'Negro' },
-        { id: 8, name: 'Cazadora efecto piel', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1249.00, image: require('../assets/img/CHA3_1.jpeg'), color:'Negro' },
+        { id: 1, name: 'Abrigo con cinturón de lazo', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1199.00, image: [ require('../assets/img/ABR1_1.jpeg'), require('../assets/img/ABR1_2.jpeg'), require('../assets/img/ABR1_3.jpeg'), require('../assets/img/ABR1_4.jpeg'), require('../assets/img/ABR1_5.jpeg')  ], color: 'Negro', characteristics: ['Abrigo largo en tela tejida. Modelo con solapas de pico y botones de presión ocultos. Cinturón de lazo extraíble ancho en la cintura. Bolsillos laterales de ojal en la parte posterior.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], },
+        { id: 2, name: 'Abrigo con cinturón de lazo', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1199.00, image: [require('../assets/img/ABR2_1.jpeg'),], color: 'Café oscuro' },
+        { id: 3, name: 'Abrigo largo en mezcla con lana', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1599.00, image: [require('../assets/img/ABR3_1.jpeg')], color: 'Beige' },
+        { id: 4, name: 'Abrigo largo en mezcla con lana', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1599.00, image: [require('../assets/img/ABR4_1.jpeg')], color: 'Negro' },
+        { id: 5, name: 'Abrigo midi soft', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1499.00, image: [require('../assets/img/ABR5_1.jpeg')], color: 'Beige' },
+        { id: 6, name: 'Gabardina corta', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 899.00, image: [require('../assets/img/CHA1_1.jpeg')], color:'Beige' },
+        { id: 7, name: 'Parka oversized', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1099.00, image: [require('../assets/img/CHA2_1.jpeg')], color:'Negro' },
+        { id: 8, name: 'Cazadora efecto piel', category: 'Ropa', subcategory: 'Cazadoras y abrigos', price: 1249.00, image: [require('../assets/img/CHA3_1.jpeg')], color:'Negro' },
         
       ],
 
     Blazers: [
-    { id: 9, name: 'Blazer de lana con cinturón', category: 'Ropa', subcategory: 'Blazers', price: 899.00, image: require('../assets/img/BLA1_1.jpeg'), color:'Gris'},
-    { id: 10, name: 'Blazer oversized con botondura doble', category: 'Ropa', subcategory: 'Blazers', price: 899.00, image: require('../assets/img/BLA2_1.jpeg'), color:'Beige'},
-    { id: 11, name: 'Blazer de lana con botonadura sencilla', category: 'Ropa', subcategory: 'Blazers', price: 899.00, image: require('../assets/img/BLA3_1.jpeg'), color:'Café/Cuadros'},
-    { id: 12, name: 'Blazer de botonadura doble', category: 'Ropa', subcategory: 'Blazers', price: 699.00, image: require('../assets/img/BLA4_1.jpeg'), color:'Negro'},
-    { id: 13, name: 'Blazer oversized', category: 'Ropa', subcategory: 'Blazers', price: 599.00, image: require('../assets/img/BLA5_1.jpeg'), color:'Negro'},
+    { id: 9, name: 'Blazer de lana con cinturón', category: 'Ropa', subcategory: 'Blazers', price: 899.00, image: [require('../assets/img/BLA1_1.jpeg')], color:'Gris'},
+    { id: 10, name: 'Blazer oversized con botondura doble', category: 'Ropa', subcategory: 'Blazers', price: 899.00, image: [require('../assets/img/BLA2_1.jpeg')], color:'Beige'},
+    { id: 11, name: 'Blazer de lana con botonadura sencilla', category: 'Ropa', subcategory: 'Blazers', price: 899.00, image: [require('../assets/img/BLA3_1.jpeg')], color:'Café/Cuadros'},
+    { id: 12, name: 'Blazer de botonadura doble', category: 'Ropa', subcategory: 'Blazers', price: 699.00, image: [require('../assets/img/BLA4_1.jpeg')], color:'Negro'},
+    { id: 13, name: 'Blazer oversized', category: 'Ropa', subcategory: 'Blazers', price: 599.00, image: [require('../assets/img/BLA5_1.jpeg')], color:'Negro'},
     ],
 
     Blusas: [

@@ -18,6 +18,8 @@ import DireccionesGuardadasScreen from './screens/DireccionesGuardadasScreen';
 import ProductList from './components/ProductList'; 
 import { ProductProvider } from './components/ProductProvider'; 
 import CatalogoScreen from './screens/CatalogoScreen'; 
+import ProductDetail from './components/ProductDetail';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -123,6 +125,12 @@ const App = () => {
           <Stack.Screen 
             name="ProductList" 
             component={ProductList} 
+            options={{ headerShown: false }} 
+          />
+
+          <Stack.Screen 
+            name="ProductDetail" 
+            component={ProductDetail} 
             options={{ headerShown: false }} 
           />
         </Stack.Navigator>

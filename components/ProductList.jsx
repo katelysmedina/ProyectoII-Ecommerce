@@ -203,20 +203,19 @@ const ProductList = ({ route, navigation }) => {
         </View>
       )}
 
-      <FlatList
-        data={finalProducts}
-        renderItem={renderProduct}
-        keyExtractor={(item) => item.id.toString()}
-        numColumns={2} 
-        showsVerticalScrollIndicator={false}
-        style={styles.productList} 
-      />
+    <FlatList
+      data={finalProducts}
+      renderItem={renderProduct}
+      keyExtractor={(item) => item.id.toString()}
+      numColumns={2} 
+      showsVerticalScrollIndicator={false}
+      style={styles.productList} 
+      contentContainerStyle={{ paddingBottom: 70 }} 
+    />
 
-  
-    <NavBar style={{ zIndex: 2 }} navigation={navigation}  />
-</View>
-
-  );
+    <NavBar style={{ zIndex: 2 }} navigation={navigation} />
+  </View>
+);
 };
 
 const { width } = Dimensions.get('window');
@@ -226,8 +225,9 @@ const styles = StyleSheet.create({
   
   
   container: {
+    flex: 1,
     justifyContent: 'center',
-    paddingVertical: 10,
+    paddingTop: 10,
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
   },
   toggleButton: {

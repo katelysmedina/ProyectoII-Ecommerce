@@ -94,18 +94,22 @@ const ProductList = ({ route, navigation }) => {
   };
 
   const applyFilters = () => {
-    toggleExpanded(); // Cerrar la ventana de filtros
+    toggleExpanded(); 
   };
 
   const renderProduct = ({ item }) => (
-    <View style={styles.productContainer}>
-      <Image source={item.image} style={styles.productImage} />
+    <TouchableOpacity 
+      style={styles.productContainer} 
+      onPress={() => navigation.navigate('ProductDetail', { product: item })} 
+    >
+      <Image source={item.image[0]} style={styles.productImage} />
       <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">
         {item.name}
       </Text>
       <Text style={styles.productPrice}>MXN ${item.price.toFixed(2)}</Text>
-    </View>
+    </TouchableOpacity>
   );
+  
 
   const uniqueColors = [...new Set(products.map(item => item.color))];
 
@@ -250,7 +254,7 @@ const styles = StyleSheet.create({
   },
   overlayContainer: {
     position: 'absolute',
-    top: 20, 
+    top: 0, 
     left: 0,
     right: 0,
     bottom: 0,
@@ -265,6 +269,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between', 
     marginBottom: 20,
+    marginTop: 20,
   },
   filterTitle: {
     fontFamily: 'Figtree-Bold', 

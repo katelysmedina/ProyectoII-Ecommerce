@@ -30,7 +30,7 @@ const ProductDetail = ({ route }) => {
     {
       id: 1,
       user: 'Adela Aguilar',
-      comment: 'Me encantó el abrigo, ¡lo quiero en más colores!',
+      comment: 'Me encantó, ¡lo quiero en más colores!',
       rating: 5,
     },
     {
@@ -274,20 +274,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: 'WorkSans-Regular',
     paddingLeft: 13,
+    marginTop: 5,
+    marginBottom: 10,
   },
   descriptionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingRight: 13,
-    marginBottom: 15,
+    marginTop: 15,
   },
   shippingHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingRight: 13,
-    marginBottom: 15,
+    
   },
   commentsContainer: {
     paddingLeft: 13,
@@ -310,7 +312,8 @@ const styles = StyleSheet.create({
   shippingText: {
     fontSize: 14,
     fontFamily: 'WorkSans-Regular',
-    marginBottom: 5,
+    marginTop: 5,
+    marginBottom: 10,
   },
   colorContainer: {
     flexDirection: 'row',

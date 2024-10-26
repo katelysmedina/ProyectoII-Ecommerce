@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Text,
   Image,
@@ -13,6 +13,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'; 
 import NavBar from './NavBar';
+import { MiBolsaContext } from './MiBolsaProvider';
+import Toast from 'react-native-root-toast';
+
 
 const { width } = Dimensions.get('window');
 
@@ -25,6 +28,8 @@ const ProductDetail = ({ route }) => {
   const [isShippingVisible, setIsShippingVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false); 
 
+
+  const { addItemToMiBolsa } = useContext(MiBolsaContext);
 
   const reviews = [
     {
@@ -47,6 +52,13 @@ const ProductDetail = ({ route }) => {
     },
     
   ];
+
+  const addProduct = (product) => {
+    Toast.show('Producto añadido a tu carrito', {
+      duration: Toast.durations.SHORT,
+    });
+    addItemToMiBolsa({...product, selectedSize: selectedSize})
+  }
 
   const handleSizePress = (size) => {
     setSelectedSize(size);
@@ -107,7 +119,8 @@ const ProductDetail = ({ route }) => {
         </View>
 
         {/* Botón Agregar */}
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={(selectedSize == null ? [styles.addButton, styles.addButtonDisabled]: styles.addButton)} disabled={selectedSize == null } 
+          onPress={() => addProduct(product)}>
           <Text style={styles.addButtonText}>Agregar</Text>
         </TouchableOpacity>
 
@@ -352,6 +365,15 @@ const styles = StyleSheet.create({
     marginVertical: 40,
     alignItems: 'center',
   },
+
+  addButtonDisabled: {
+    backgroundColor: '#4F4F4F',
+    paddingVertical: 15,
+    marginHorizontal: 13,
+    marginVertical: 40,
+    alignItems: 'center',
+  },
+
   addButtonText: {
     color: '#fff',
     fontSize: 14,

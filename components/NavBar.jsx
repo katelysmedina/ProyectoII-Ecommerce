@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
   },
   tab: {
     alignItems: 'center',
+    padding: 5,
   },
   menuContainer: {
     flexDirection: 'row',

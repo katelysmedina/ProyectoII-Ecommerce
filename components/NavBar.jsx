@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import { MiBolsaContext } from './MiBolsaProvider';
 
 const NavBar = ({ navigation, activeScreen }) => {
+  const { MiBolsa } = useContext(MiBolsaContext);
+
+  const totalOfItems = MiBolsa.reduce((acc, prev) => acc + prev.quantity, 0);
   return (
     <View style={styles.tabBar}>
       <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Home')}>
@@ -17,6 +21,9 @@ const NavBar = ({ navigation, activeScreen }) => {
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('MiBolsa')}>
+        <View style={styles.counter}>
+          <Text style={styles.counterText}>{totalOfItems}</Text>
+        </View>
         <Feather name="shopping-bag" size={18} color={activeScreen === 'MisCompras' ? '#000' : '#555'} />
       </TouchableOpacity>
       <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Login')}>
@@ -49,12 +56,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
   },
+  counter:{
+    position: 'absolute',
+    top: -4,
+    right: -2,
+    borderColor: "#666",
+    borderWidth: 1.5,
+    zIndex: -1,
+    borderRadius: 50,
+    paddingHorizontal: 3
+  },
+  counterText:{
+    fontSize: 8,
+    fontWeight: 'light',
+    color: '#666',
+    fontFamily: 'WorkSans-Medium',
+  },
   menuContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   menuText: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#666',
     fontFamily: 'WorkSans-Medium',
   },

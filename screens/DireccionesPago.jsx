@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
-import NavBar from '../components/NavBar';
 
-const DireccionesGuardadasScreen = ({ navigation }) => {
+
+const DireccionesPago = ({ route, navigation }) => {
+    const { total, tipoEnvio } = route.params;
   const [direccion, setDireccion] = useState('');
   const [codigoPostal, setCodigoPostal] = useState('');
   const [estado, setEstado] = useState('');
   const [ciudad, setCiudad] = useState('');
 
   const handleSave = () => {
-    console.log('Dirección:', direccion);
-    console.log('Código Postal:', codigoPostal);
-    console.log('Estado:', estado);
-    console.log('Ciudad:', ciudad);
+    navigation.navigate('MetodosDePago', { total, tipoEnvio });
   };
+
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
         <Feather name="chevron-left" size={20} color="black" />
       </TouchableOpacity>
-      <Text style={styles.title}>Direcciones guardadas</Text>
+      <Text style={styles.title}>Datos del receptor</Text>
 
       <TextInput
         style={styles.input}
@@ -54,10 +53,10 @@ const DireccionesGuardadasScreen = ({ navigation }) => {
       />
 
       <TouchableOpacity style={styles.button} onPress={handleSave}>
-        <Text style={styles.buttonText}>Guardar</Text>
+        <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>
 
-      <NavBar navigation={navigation} />
+      
     </View>
   );
 };
@@ -107,4 +106,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DireccionesGuardadasScreen;
+export default DireccionesPago;

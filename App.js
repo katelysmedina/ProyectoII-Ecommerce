@@ -21,6 +21,12 @@ import ProductList from './components/ProductList';
 import CatalogoScreen from './screens/CatalogoScreen'; 
 import ProductDetail from './components/ProductDetail';
 import MiBolsaScreen from './screens/MiBolsaScreen';
+import MetodosDeEnvio from './components/MetodosDeEnvio';
+import MetodosDePago from './screens/MetodoDePago';
+import PagoConTarjetaScreen from './screens/PagoConTarjetaScreen';
+import GiftcardScreen from './screens/GiftcardScreen';
+import PantallaConfirmacionScreen from './screens/PantallaConfirmacionScreen';
+import DireccionesPago from './screens/DireccionesPago';
 
 import { ProductProvider } from './components/ProductProvider'; 
 import { MiBolsaProvider } from './components/MiBolsaProvider';
@@ -145,6 +151,44 @@ const App = () => {
               component={MiBolsaScreen}
               options={{ headerShown: false }}
             />
+
+            <Stack.Screen
+              name="MetodosDeEnvio"
+              component={MetodosDeEnvio}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen
+              name="MetodosDePago"
+              component={MetodosDePago}
+              options={{ headerShown: false }}
+            />
+
+            <Stack.Screen 
+              name="PagoConTarjeta" 
+              component={PagoConTarjetaScreen}
+              options={{ headerShown: false }} 
+            />
+
+            
+            <Stack.Screen 
+              name="GiftcardScreen" 
+              component={GiftcardScreen}
+              options={{ headerShown: false }} 
+            />
+
+            <Stack.Screen 
+              name="PantallaConfirmacionScreen" 
+              component={PantallaConfirmacionScreen}
+              options={{ headerShown: false }} 
+            />
+
+            <Stack.Screen 
+              name="DireccionesPago" 
+              component={DireccionesPago}
+              options={{ headerShown: false }} 
+            />
+
           </Stack.Navigator>
         </NavigationContainer>
       </MiBolsaProvider>

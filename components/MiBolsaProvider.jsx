@@ -46,9 +46,17 @@ export const MiBolsaProvider = ({ children }) => {
         setProductToMiBolsa(updatedMiBolsa);
         save(updatedMiBolsa);
     }
-
+    const vaciarBolsa = async () => {
+        setProductToMiBolsa([]);
+        try {
+            await AsyncStorage.removeItem('MiBolsa');
+        } catch (error) {
+            console.error('Error al vaciar la bolsa', error);
+        }
+    };
+    
 return (
-  <MiBolsaContext.Provider value={{ MiBolsa, addItemToMiBolsa, eliminarProductoFromMiBolsa }}>
+  <MiBolsaContext.Provider value={{ MiBolsa, addItemToMiBolsa, eliminarProductoFromMiBolsa, vaciarBolsa }}>
     {children}
   </MiBolsaContext.Provider>
 );

@@ -19,7 +19,7 @@ const DatosPersonalesScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
-        <Feather name="chevron-left" size={24} color="black" />
+        <Feather name="chevron-left" size={20} color="black" />
       </TouchableOpacity>
       <Text style={styles.title}>Datos personales</Text>
 
@@ -38,7 +38,7 @@ const DatosPersonalesScreen = ({ navigation }) => {
         onChangeText={setApellidos}
       />
 
-      {/* Contenedor para prefijo y número de teléfono */}
+      
       <View style={styles.phoneContainer}>
         <TextInput
           style={styles.prefixInput}

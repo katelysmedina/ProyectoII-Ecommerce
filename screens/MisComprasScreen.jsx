@@ -7,7 +7,7 @@ const MisComprasScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
-        <Feather name="chevron-left" size={24} color="black" />
+        <Feather name="chevron-left" size={20} color="black" />
       </TouchableOpacity>
       <Text style={styles.title}>Mis compras</Text>
 
@@ -65,13 +65,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     paddingVertical: 11,
     paddingHorizontal: 25,
-    borderRadius: 4,
   },
   discoverButtonText: {
     color: '#fff',
-    fontFamily: 'Figtree-SemiBold',
     fontSize: 15,
+    fontWeight: 'bold',
     textTransform: 'uppercase',
+    fontFamily: 'WorkSans-Regular',
   },
 });
 

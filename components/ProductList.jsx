@@ -131,7 +131,7 @@ const ProductList = ({ route, navigation }) => {
         style={styles.chevronButton} 
         onPress={() => navigation.navigate('RopaMenuScreen')}
       >
-        <Feather name="chevron-left" size={24} color="black" />
+        <Feather name="chevron-left" size={20} color="black" />
       </TouchableOpacity>
 
       <Text style={styles.categoryTitle}>{category}</Text>

@@ -32,7 +32,7 @@ const RegisterScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
-        <Feather name="chevron-left" size={24} color="black" />
+        <Feather name="chevron-left" size={2} color="black" />
       </TouchableOpacity>
       <Text style={styles.title}>Crear cuenta</Text>
       <TextInput
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#000000',
-    borderRadius: 4,
     paddingVertical: 15,
     alignItems: 'center',
     marginTop: 50,

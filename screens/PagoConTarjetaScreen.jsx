@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View, TextInput, StyleSheet, Alert, Text, TouchableOpacity } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
+import { MiBolsaContext } from "../components/MiBolsaProvider";
+import { MisComprasContext } from "../components/MisComprasProvider";
 
 const PagoConTarjetaScreen = ({ route, navigation }) => {
   const { total, tipoEnvio } = route.params; 
+
+  const { MiBolsa, vaciarBolsa } = useContext(MiBolsaContext);
+  const { misCompras, addItemToMisCompras } = useContext(MisComprasContext);
+
   const [cardDetails, setCardDetails] = useState({
     number: '',
     expMonth: '',
@@ -18,14 +24,14 @@ const PagoConTarjetaScreen = ({ route, navigation }) => {
     setCardDetails({ ...cardDetails, number: formatted });
   };
 
-  const handlePayment = () => {
-    {
+  const  handlePayment = () => {
+    addItemToMisCompras(MiBolsa);
+    vaciarBolsa();
       navigation.navigate("PantallaConfirmacionScreen", {
         total,
         tipoEnvio,
-        metodoPago: "Gift Card",
+        metodoPago: "Pago con tarjeta",
       });
-  };
   };
 
   const handleExpiryChange = (text) => {

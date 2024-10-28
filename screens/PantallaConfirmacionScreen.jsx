@@ -2,14 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Feather from '@expo/vector-icons/Feather';
-import { MiBolsaContext } from '../components/MiBolsaProvider'; 
 
 const PantallaConfirmacionScreen = ({ route }) => {
   const navigation = useNavigation();
   const { total, metodoPago } = route.params;
   const [loading, setLoading] = useState(true); 
   const [showMessage, setShowMessage] = useState(false);
-  const { vaciarBolsa } = useContext(MiBolsaContext); 
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -21,7 +19,6 @@ const PantallaConfirmacionScreen = ({ route }) => {
   }, []);
 
   const handleClose = () => {
-    vaciarBolsa(); 
     navigation.navigate('MiBolsa');
   };
 
@@ -47,8 +44,8 @@ const PantallaConfirmacionScreen = ({ route }) => {
               <Text style={styles.message}>
                 Tu pago ha sido procesado exitosamente.
               </Text>
-              <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-                <Text style={styles.buttonText}>Seguir envío</Text>
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('MisCompras')}>
+                <Text style={styles.buttonText}>Ir a mis compras</Text>
               </TouchableOpacity>
             </>
           )}

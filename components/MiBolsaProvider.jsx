@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
@@ -7,15 +7,15 @@ export const MiBolsaContext = createContext();
 export const MiBolsaProvider = ({ children }) => {
     const [MiBolsa, setProductToMiBolsa] = useState([]);
 
-    const save = async (items) =>{
+    const save = async (items, storageName) =>{
         try {
-            await AsyncStorage.setItem('MiBolsa', JSON.stringify(items));
+            await AsyncStorage.setItem(storageName, JSON.stringify(items));
         } catch (error) {
             console.error(`Error al guardar el producto en la bolsa`, error);
         }
     }
 
-    const addItemToMiBolsa = (product) => {
+    const addItemToMiBolsa = async (product) => {
         let existItem = MiBolsa.findIndex((element) =>  element.id === product.id &&
                                                         element.selectedSize === product.selectedSize)
         let updatedMiBolsa;
@@ -27,10 +27,10 @@ export const MiBolsaProvider = ({ children }) => {
             updatedMiBolsa = [...MiBolsa, {...product, quantity: 1}];
         }
         setProductToMiBolsa(updatedMiBolsa);
-        save(updatedMiBolsa);
+        await save(updatedMiBolsa, 'miBolsa');
     }
 
-    const eliminarProductoFromMiBolsa = (product) => {
+    const eliminarProductoFromMiBolsa = async (product) => {
         let existedItem = MiBolsa.findIndex((element) => element.id === product.id &&
                                                         element.selectedSize === product.selectedSize)
         
@@ -44,8 +44,9 @@ export const MiBolsaProvider = ({ children }) => {
             }
         }
         setProductToMiBolsa(updatedMiBolsa);
-        save(updatedMiBolsa);
+        await save(updatedMiBolsa, 'miBosa');
     }
+
     const vaciarBolsa = async () => {
         setProductToMiBolsa([]);
         try {
@@ -60,9 +61,4 @@ return (
     {children}
   </MiBolsaContext.Provider>
 );
-};
-
-
-export const useProducts = () => {
-return useContext(ProductContext);
 };

@@ -27,9 +27,11 @@ import PagoConTarjetaScreen from './screens/PagoConTarjetaScreen';
 import GiftcardScreen from './screens/GiftcardScreen';
 import PantallaConfirmacionScreen from './screens/PantallaConfirmacionScreen';
 import DireccionesPago from './screens/DireccionesPago';
+import SeguimientoCompraScreen from './screens/SeguimientoCompraScreen';
 
 import { ProductProvider } from './components/ProductProvider'; 
 import { MiBolsaProvider } from './components/MiBolsaProvider';
+import { MisComprasProvider } from './components/MisComprasProvider'; 
 
 const Stack = createNativeStackNavigator();
 
@@ -69,130 +71,137 @@ const App = () => {
 
   return (
     <RootSiblingParent>
-    <ProductProvider>
-      <MiBolsaProvider>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen 
-              name="Home" 
-              component={HomeScreen} 
-              options={{ 
-                header: () => <Header />, 
-                animationEnabled: false
-              }} 
-            />
-            <Stack.Screen 
-              name="Menu" 
-              component={MenuScreen} 
-              options={{ 
-                header: () => <Header />, 
-                animationEnabled: false 
-              }} 
-            />
-            <Stack.Screen 
-              name="RopaMenuScreen" 
-              component={RopaMenuScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="CalzadoMenuScreen" 
-              component={CalzadoMenuScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="Catalogo"    
-              component={CatalogoScreen} 
-              options={{ headerShown: false }}  
-            />
-            <Stack.Screen 
-              name="Login" 
-              component={LoginScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="Register" 
-              component={RegisterScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="Configuration" 
-              component={ConfigurationScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="MisCompras" 
-              component={MisComprasScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="DatosPersonales" 
-              component={DatosPersonalesScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="DireccionesGuardadas" 
-              component={DireccionesGuardadasScreen} 
-              options={{ headerShown: false }} 
-            />
-            <Stack.Screen 
-              name="ProductList" 
-              component={ProductList} 
-              options={{ headerShown: false }} 
-            />
+      <MisComprasProvider>
+        <ProductProvider>
+          <MiBolsaProvider>
+            <NavigationContainer>
+              <Stack.Navigator initialRouteName="Home">
+                <Stack.Screen 
+                  name="Home" 
+                  component={HomeScreen} 
+                  options={{ 
+                    header: () => <Header />, 
+                    animationEnabled: false
+                  }} 
+                />
+                <Stack.Screen 
+                  name="Menu" 
+                  component={MenuScreen} 
+                  options={{ 
+                    header: () => <Header />, 
+                    animationEnabled: false 
+                  }} 
+                />
+                <Stack.Screen 
+                  name="RopaMenuScreen" 
+                  component={RopaMenuScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="CalzadoMenuScreen" 
+                  component={CalzadoMenuScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="Catalogo"    
+                  component={CatalogoScreen} 
+                  options={{ headerShown: false }}  
+                />
+                <Stack.Screen 
+                  name="Login" 
+                  component={LoginScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="Register" 
+                  component={RegisterScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="Configuration" 
+                  component={ConfigurationScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="MisCompras" 
+                  component={MisComprasScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="DatosPersonales" 
+                  component={DatosPersonalesScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="DireccionesGuardadas" 
+                  component={DireccionesGuardadasScreen} 
+                  options={{ headerShown: false }} 
+                />
+                <Stack.Screen 
+                  name="ProductList" 
+                  component={ProductList} 
+                  options={{ headerShown: false }} 
+                />
 
-            <Stack.Screen 
-              name="ProductDetail" 
-              component={ProductDetail} 
-              options={{ headerShown: false }} 
-            />
+                <Stack.Screen 
+                  name="ProductDetail" 
+                  component={ProductDetail} 
+                  options={{ headerShown: false }} 
+                />
 
-            <Stack.Screen
-              name="MiBolsa"
-              component={MiBolsaScreen}
-              options={{ headerShown: false }}
-            />
+                <Stack.Screen
+                  name="MiBolsa"
+                  component={MiBolsaScreen}
+                  options={{ headerShown: false }}
+                />
 
-            <Stack.Screen
-              name="MetodosDeEnvio"
-              component={MetodosDeEnvio}
-              options={{ headerShown: false }}
-            />
+                <Stack.Screen
+                  name="MetodosDeEnvio"
+                  component={MetodosDeEnvio}
+                  options={{ headerShown: false }}
+                />
 
-            <Stack.Screen
-              name="MetodosDePago"
-              component={MetodosDePago}
-              options={{ headerShown: false }}
-            />
+                <Stack.Screen
+                  name="MetodosDePago"
+                  component={MetodosDePago}
+                  options={{ headerShown: false }}
+                />
 
-            <Stack.Screen 
-              name="PagoConTarjeta" 
-              component={PagoConTarjetaScreen}
-              options={{ headerShown: false }} 
-            />
+                <Stack.Screen 
+                  name="PagoConTarjeta" 
+                  component={PagoConTarjetaScreen}
+                  options={{ headerShown: false }} 
+                />
 
-            
-            <Stack.Screen 
-              name="GiftcardScreen" 
-              component={GiftcardScreen}
-              options={{ headerShown: false }} 
-            />
+                
+                <Stack.Screen 
+                  name="GiftcardScreen" 
+                  component={GiftcardScreen}
+                  options={{ headerShown: false }} 
+                />
 
-            <Stack.Screen 
-              name="PantallaConfirmacionScreen" 
-              component={PantallaConfirmacionScreen}
-              options={{ headerShown: false }} 
-            />
+                <Stack.Screen 
+                  name="PantallaConfirmacionScreen" 
+                  component={PantallaConfirmacionScreen}
+                  options={{ headerShown: false }} 
+                />
 
-            <Stack.Screen 
-              name="DireccionesPago" 
-              component={DireccionesPago}
-              options={{ headerShown: false }} 
-            />
+                <Stack.Screen 
+                  name="DireccionesPago" 
+                  component={DireccionesPago}
+                  options={{ headerShown: false }} 
+                />
 
-          </Stack.Navigator>
-        </NavigationContainer>
-      </MiBolsaProvider>
-    </ProductProvider>
+                <Stack.Screen 
+                  name="SeguimientoCompra" 
+                  component={SeguimientoCompraScreen}
+                  options={{ headerShown: false }} 
+                />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </MiBolsaProvider>
+        </ProductProvider>
+      </MisComprasProvider>
     </RootSiblingParent>
   );
 };

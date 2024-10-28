@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        borderTopWidth: 2,
+        borderTopWidth: 1,
         borderTopColor: '#E3E3E3',
         height: 58
     },
@@ -242,10 +242,11 @@ const styles = StyleSheet.create({
     },
     totalMiBolsa: {
         flex: 1,
-        marginTop: 5,
+        paddingTop: 5,
         paddingRight: 15,
         alignItems: 'flex-end',
         backgroundColor: '#fff',
+        height: '100%'
     },
     continuarButtonText: {
         color: '#fff',

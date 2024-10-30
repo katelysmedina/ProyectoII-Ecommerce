@@ -7,7 +7,15 @@ const GiftCardScreen = ({ route, navigation }) => {
   const [giftCardCode, setGiftCardCode] = useState("");
   const [pin, setPin] = useState("");
 
+  const { MiBolsa, vaciarBolsa } = useContext(MiBolsaContext);
+  const { addItemToMisCompras } = useContext(MisComprasContext);
+
+
   const handleApplyGiftCard = () => {
+    addItemToMisCompras({MiBolsa, informacionPago: cardDetails.number});
+
+    vaciarBolsa();
+
      {
       navigation.navigate("PantallaConfirmacionScreen", {
         total,
@@ -16,6 +24,8 @@ const GiftCardScreen = ({ route, navigation }) => {
       });
   };
   };
+
+  const checkifCanContinue = (giftCardCode != '', pin != '');
 
   const formatGiftCardCode = (text) => {
     
@@ -59,7 +69,7 @@ const GiftCardScreen = ({ route, navigation }) => {
         <Text style={styles.totalText1}>MXN ${total.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</Text>
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={handleApplyGiftCard}>
+      <TouchableOpacity style={[styles.button,  {backgroundColor: checkifCanContinue ? '#000000' : '#4F4F4F'}]} disabled={!checkifCanContinue} onPress={handleApplyGiftCard}>
         <Text style={styles.buttonText}>Aplicar Gift Card</Text>
       </TouchableOpacity>
       

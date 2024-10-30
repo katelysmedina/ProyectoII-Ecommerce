@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { View, StyleSheet, TextInput, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import { MisComprasContext } from '../components/MisComprasProvider';
 
 
 const DireccionesPago = ({ route, navigation }) => {
@@ -9,12 +10,20 @@ const DireccionesPago = ({ route, navigation }) => {
   const [codigoPostal, setCodigoPostal] = useState('');
   const [estado, setEstado] = useState('');
   const [ciudad, setCiudad] = useState('');
+  const { addDatosDeEnvio } = useContext(MisComprasContext);
 
   const handleSave = () => {
+    addDatosDeEnvio({
+      direccion,
+      codigoPostal,
+      estado,
+      ciudad
+    })
     navigation.navigate('MetodosDePago', { total, tipoEnvio });
   };
 
-
+ const checkifCanContinue = (direccion != '' && codigoPostal != '' && estado != '' && ciudad != '');
+ 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
@@ -52,7 +61,7 @@ const DireccionesPago = ({ route, navigation }) => {
         onChangeText={setCiudad}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleSave}>
+      <TouchableOpacity style={[styles.button, {backgroundColor: checkifCanContinue ? '#000000' : '#4F4F4F'}]} onPress={handleSave} disabled={!checkifCanContinue}>
         <Text style={styles.buttonText}>Continuar</Text>
       </TouchableOpacity>
 

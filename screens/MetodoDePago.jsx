@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Feather from "@expo/vector-icons/Feather";
+import { MisComprasContext } from "../components/MisComprasProvider";
 
 const MetodosDePagoScreen = ({ route, navigation }) => {
   const { total, tipoEnvio } = route.params;
+  const { addMetodoDePago } = useContext(MisComprasContext);
 
   const handleSeleccionarPago = (metodoPago) => {
     if (metodoPago === "Tarjeta bancaria") {
+      addMetodoDePago("Tarjeta bancaria")
       navigation.navigate("PagoConTarjeta", {
         total,
         tipoEnvio,
       });
     } else if (metodoPago === "Giftcard") {
+      addMetodoDePago("Giftcard")
       navigation.navigate("GiftcardScreen", {
         total,
         tipoEnvio,

@@ -8,7 +8,7 @@ const PagoConTarjetaScreen = ({ route, navigation }) => {
   const { total, tipoEnvio } = route.params; 
 
   const { MiBolsa, vaciarBolsa } = useContext(MiBolsaContext);
-  const { misCompras, addItemToMisCompras } = useContext(MisComprasContext);
+  const { addItemToMisCompras } = useContext(MisComprasContext);
 
   const [cardDetails, setCardDetails] = useState({
     number: '',
@@ -25,7 +25,7 @@ const PagoConTarjetaScreen = ({ route, navigation }) => {
   };
 
   const  handlePayment = () => {
-    addItemToMisCompras(MiBolsa);
+    addItemToMisCompras({MiBolsa, informacionPago: cardDetails.number});
     vaciarBolsa();
       navigation.navigate("PantallaConfirmacionScreen", {
         total,
@@ -33,6 +33,8 @@ const PagoConTarjetaScreen = ({ route, navigation }) => {
         metodoPago: "Pago con tarjeta",
       });
   };
+
+  const checkifCanContinue = (cardDetails.number != '', cardDetails.expMonth != '', cardDetails.expYear != '', cardDetails.cvc != '', cardDetails.holderName != '' )
 
   const handleExpiryChange = (text) => {
     const cleanText = text.replace(/\D/g, '');
@@ -101,7 +103,7 @@ const PagoConTarjetaScreen = ({ route, navigation }) => {
       </View>
       
       
-      <TouchableOpacity style={styles.payButton} onPress={handlePayment}>
+      <TouchableOpacity style={[styles.payButton,  {backgroundColor: checkifCanContinue ? '#000000' : '#4F4F4F'}]} disabled={!checkifCanContinue} onPress={handlePayment}>
         <Text style={styles.payButtonText}>Pagar</Text>
       </TouchableOpacity>
     </View>

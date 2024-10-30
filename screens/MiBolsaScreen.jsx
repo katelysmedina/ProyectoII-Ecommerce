@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { SafeAreaView,
-        Text,
+import { Text,
         StyleSheet,
         TouchableOpacity,
         View,

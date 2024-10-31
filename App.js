@@ -28,10 +28,13 @@ import GiftcardScreen from './screens/GiftcardScreen';
 import PantallaConfirmacionScreen from './screens/PantallaConfirmacionScreen';
 import DireccionesPago from './screens/DireccionesPago';
 import SeguimientoCompraScreen from './screens/SeguimientoCompraScreen';
+import NotificacionesScreen from './screens/NotificacionesScreen';
 
 import { ProductProvider } from './components/ProductProvider'; 
 import { MiBolsaProvider } from './components/MiBolsaProvider';
 import { MisComprasProvider } from './components/MisComprasProvider'; 
+import { NotificacionesProvider } from './components/NotificacionesProvider';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -71,6 +74,7 @@ const App = () => {
 
   return (
     <RootSiblingParent>
+    <NotificacionesProvider>
       <MisComprasProvider>
         <ProductProvider>
           <MiBolsaProvider>
@@ -197,11 +201,20 @@ const App = () => {
                   component={SeguimientoCompraScreen}
                   options={{ headerShown: false }} 
                 />
+
+                <Stack.Screen 
+                  name="NotificacionesScreen"
+                  component={NotificacionesScreen}
+                  options={{ headerShown: false }} 
+                />
+
               </Stack.Navigator>
             </NavigationContainer>
           </MiBolsaProvider>
         </ProductProvider>
+      
       </MisComprasProvider>
+       </NotificacionesProvider> 
     </RootSiblingParent>
   );
 };

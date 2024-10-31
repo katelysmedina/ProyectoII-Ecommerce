@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, TextInput, Text, TouchableOpacity, StyleSheet} from "react-native";
 import Feather from "@expo/vector-icons/Feather";
+import { MiBolsaContext } from "../components/MiBolsaProvider";
+import { MisComprasContext } from "../components/MisComprasProvider";
 
 const GiftCardScreen = ({ route, navigation }) => {
   const { total, tipoEnvio } = route.params;
@@ -10,6 +12,10 @@ const GiftCardScreen = ({ route, navigation }) => {
   const { MiBolsa, vaciarBolsa } = useContext(MiBolsaContext);
   const { addItemToMisCompras } = useContext(MisComprasContext);
 
+  const [cardDetails] = useState({
+    number: '',
+    pin: '', 
+  });
 
   const handleApplyGiftCard = () => {
     addItemToMisCompras({MiBolsa, informacionPago: cardDetails.number});

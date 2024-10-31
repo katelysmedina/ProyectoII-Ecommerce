@@ -3,9 +3,14 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import NavBar from '../components/NavBar';
 import CustomModal from '../components/CustomModal';
-import TerminosCondiciones from './staticFiles/terminos-condiciones';
-import PoliticaPrivacidad from './staticFiles/politica-privacidad';
-import PoliticaSeguridad from './staticFiles/politica-seguridad';
+
+
+import PoliticaSeguridad from './staticfiles/politica-seguridad';
+import TerminosCondiciones from './staticfiles/terminos-condiciones';
+import PoliticaPrivacidad from './staticfiles/politica-privacidad';
+
+
+
 
 const ConfigurationScreen = ({ navigation }) => {
   const [isTerminosVisible, setTerminosVisible] = useState(false)
@@ -39,6 +44,7 @@ const ConfigurationScreen = ({ navigation }) => {
         </View>
         <Text style={styles.optionText}>Direcciones guardadas</Text>
       </TouchableOpacity>
+
 
       <View style={styles.divider} />
 

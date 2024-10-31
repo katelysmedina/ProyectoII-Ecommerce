@@ -1,15 +1,14 @@
-import React, {useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
 import NavBar from '../components/NavBar';
-
 import { MisComprasContext } from '../components/MisComprasProvider';
 
 const SeguimientoCompraScreen = ({ navigation, route }) => {
     const { misCompras } = useContext(MisComprasContext);
-
     const [estadoSeguimiento, setEstadoSeguimiento] = useState(0);
     const [productosComprados, setProductosComprados] = useState([]);
+    const [notificacion, setNotificacion] = useState(''); 
 
     const { compraId } = route.params;
     const index = compraId - 1; 
@@ -21,12 +20,22 @@ const SeguimientoCompraScreen = ({ navigation, route }) => {
         { id: 4, nombre: 'Entregado'},
       ];
 
-    useEffect(() => {
-      setEstadoSeguimiento(misCompras[index].seguimientoEstadoId);
-      setProductosComprados(misCompras[index].compras)        
-    }, []);
+      useEffect(() => {
+        setEstadoSeguimiento(misCompras[index].seguimientoEstadoId);
+        setProductosComprados(misCompras[index].compras);
+        
+        
+        if (misCompras[index].seguimientoEstadoId === 1) {
+            setNotificacion('Tu pedido está en tránsito.');
+        
+            
+        } else {
+            setNotificacion('');
+        }
+    }, [misCompras, index, productosComprados]);
 
-    const renderProduct = ({ item, index }) => (
+
+    const renderProduct = ({ item }) => (
       <View style={styles.items}>
       <View style={styles.infoProductImage}>
           <Image source={item.image[0]} style={styles.productImage} />
@@ -47,11 +56,11 @@ const SeguimientoCompraScreen = ({ navigation, route }) => {
       <Text style={styles.title}>Seguimiento de envío # {compraId}</Text>
       <Text style={styles.subtitleSmall}>{misCompras[index].fecha}</Text>
 
-      <Text style={styles.subtitle}>Direccion de envío:</Text>
+      <Text style={styles.subtitle}>Dirección de envío:</Text>
       <Text style={styles.subtitleSmall}>{misCompras[index].datosEnvio.direccion}, {misCompras[index].datosEnvio.codigoPostal}, {misCompras[index].datosEnvio.ciudad}, {misCompras[index].datosEnvio.estado}</Text>
 
       <View style={styles.containerTimeLine}>
-      {estados.map((estado, _) => (
+      {estados.map((estado) => (
         <View key={estado.id} style={styles.stepContainer}>
           <View style={[styles.circle,  estadoSeguimiento >= estado.id ? styles.active : styles.inactive]}/>
             <View style={[ styles.line, estadoSeguimiento >= estado.id ? styles.active : styles.inactive]}/>
@@ -59,6 +68,10 @@ const SeguimientoCompraScreen = ({ navigation, route }) => {
         </View>
       ))}
       </View>
+      
+      {/* Mostrar la notificación */}
+      {notificacion ? <Text style={styles.notification}>{notificacion}</Text> : null}
+
       <Text style={styles.subtitle}>Detalles de la compra</Text>
       <FlatList
         data={productosComprados}
@@ -73,7 +86,7 @@ const SeguimientoCompraScreen = ({ navigation, route }) => {
           <Text style={styles.totalText}>Total MXN ${total.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</Text>
         </View>
         <View style={styles.column}>
-          <Text style={styles.infromacionPago}>Metodo de pago</Text>
+          <Text style={styles.infromacionPago}>Método de pago</Text>
           <Text style={styles.datosPago}>{misCompras[index].informacionPago.metodoDePago}</Text>
           <Text style={styles.datosPago}>*****{(misCompras[index].informacionPago.informacionPago).slice(-4)}</Text>
         </View>
@@ -83,6 +96,8 @@ const SeguimientoCompraScreen = ({ navigation, route }) => {
     </View>
   );
 };
+
+
 
 const styles = StyleSheet.create({
 

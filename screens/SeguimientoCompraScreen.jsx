@@ -8,7 +8,7 @@ const SeguimientoCompraScreen = ({ navigation, route }) => {
     const { misCompras } = useContext(MisComprasContext);
     const [estadoSeguimiento, setEstadoSeguimiento] = useState(0);
     const [productosComprados, setProductosComprados] = useState([]);
-    const [notificacion, setNotificacion] = useState(''); // Estado para la notificación
+    const [notificacion, setNotificacion] = useState(''); 
 
     const { compraId } = route.params;
     const index = compraId - 1; 

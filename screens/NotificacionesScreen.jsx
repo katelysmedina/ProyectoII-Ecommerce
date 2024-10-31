@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, FlatList, Image, TouchableOpacity } from 'react
 import { MisComprasContext } from '../components/MisComprasProvider';
 import Feather from '@expo/vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
-import NavBar from '../components/NavBar'; // Asegúrate de tener la ruta correcta
+import NavBar from '../components/NavBar'; 
 
 const NotificacionesScreen = () => {
     const navigation = useNavigation();
@@ -56,7 +56,7 @@ const NotificacionesScreen = () => {
         </View>
     );
 
-    // Calcular el contador de notificaciones
+    
     const notificationCount = notificaciones.length;
 
     return (

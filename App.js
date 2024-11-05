@@ -29,6 +29,7 @@ import PantallaConfirmacionScreen from './screens/PantallaConfirmacionScreen';
 import DireccionesPago from './screens/DireccionesPago';
 import SeguimientoCompraScreen from './screens/SeguimientoCompraScreen';
 import NotificacionesScreen from './screens/NotificacionesScreen';
+import NotificacionesConfiguracion from './screens/NotificacionesConfiguración';
 
 import { ProductProvider } from './components/ProductProvider'; 
 import { MiBolsaProvider } from './components/MiBolsaProvider';
@@ -205,6 +206,12 @@ const App = () => {
                 <Stack.Screen 
                   name="NotificacionesScreen"
                   component={NotificacionesScreen}
+                  options={{ headerShown: false }} 
+                />
+
+                <Stack.Screen 
+                  name="NotificacionesConfiguracion"
+                  component={NotificacionesConfiguracion}
                   options={{ headerShown: false }} 
                 />
 

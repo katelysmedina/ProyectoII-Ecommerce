@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Feather from '@expo/vector-icons/Feather';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 import NavBar from '../components/NavBar';
 import CustomModal from '../components/CustomModal';
 
@@ -45,10 +47,16 @@ const ConfigurationScreen = ({ navigation }) => {
         <Text style={styles.optionText}>Direcciones guardadas</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.option} onPress={() => navigation.navigate('FavoritosScreen')}>
+        <View style={styles.iconContainer}>
+          <Ionicons name="heart-outline" size={16} color="#000" />        
+        </View>
+        <Text style={styles.optionText}>Favoritos</Text>
+      </TouchableOpacity>
 
       <View style={styles.divider} />
 
-      <TouchableOpacity style={styles.option} onPress={() => navigation.navigate('Ayuda')}>
+      <TouchableOpacity style={styles.option} onPress={() => navigation.navigate('AyudaScreen')}>
         <Feather name="help-circle" size={16} color="#000" />
         <Text style={styles.optionText}>Ayuda</Text>
       </TouchableOpacity>

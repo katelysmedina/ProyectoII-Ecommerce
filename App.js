@@ -30,11 +30,14 @@ import DireccionesPago from './screens/DireccionesPago';
 import SeguimientoCompraScreen from './screens/SeguimientoCompraScreen';
 import NotificacionesScreen from './screens/NotificacionesScreen';
 import NotificacionesConfiguracion from './screens/NotificacionesConfiguración';
+import FavoritosScreen from './screens/FavoritosScreen';
+import AyudaScreen from './screens/AyudaScreen';
 
 import { ProductProvider } from './components/ProductProvider'; 
 import { MiBolsaProvider } from './components/MiBolsaProvider';
 import { MisComprasProvider } from './components/MisComprasProvider'; 
 import { NotificacionesProvider } from './components/NotificacionesProvider';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -210,11 +213,23 @@ const App = () => {
                 />
 
                 <Stack.Screen 
+
                   name="NotificacionesConfiguracion"
                   component={NotificacionesConfiguracion}
                   options={{ headerShown: false }} 
                 />
 
+              <Stack.Screen
+                  name="FavoritosScreen"
+                  component={FavoritosScreen}
+                  options={{ headerShown: false }} 
+                />
+
+                <Stack.Screen 
+                  name="AyudaScreen"
+                  component={AyudaScreen}
+                  options={{ headerShown: false }} 
+                />
               </Stack.Navigator>
             </NavigationContainer>
           </MiBolsaProvider>

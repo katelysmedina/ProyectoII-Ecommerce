@@ -10,10 +10,11 @@ import {
 } from 'react-native';
 import { useProducts } from './ProductProvider';
 import Feather from '@expo/vector-icons/Feather';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import NavBar from './NavBar';
 
 const ProductList = ({ route, navigation }) => { 
-  const { productsByCategory } = useProducts();
+  const { productsByCategory, toggleFavorito } = useProducts();
   const { category } = route.params;
 
   const [expanded, setExpanded] = useState(false);
@@ -102,6 +103,12 @@ const ProductList = ({ route, navigation }) => {
       style={styles.productContainer} 
       onPress={() => navigation.navigate('ProductDetail', { product: item })} 
     >
+      <TouchableOpacity 
+        style={styles.botonFavoritos}
+        onPress={() => toggleFavorito(item.id)}
+      >
+         {item.favorito ? <Ionicons name="heart-sharp" size={24} color="black" /> : <Ionicons name="heart-outline" size={24} color="black" />}
+      </TouchableOpacity>
       <Image source={item.image[0]} style={styles.productImage} />
       <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">
         {item.name}
@@ -366,6 +373,7 @@ const styles = StyleSheet.create({
   productContainer: {
     width: width / 2,
     marginBottom: 60,
+    position: 'relative'
   },
   productImage: {
     width: '100%',
@@ -402,7 +410,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: 'bold',
     color: '#aaa'
-  }
+  },
+  botonFavoritos:{
+    position: 'absolute',
+    zIndex: 100,
+    top: 10,
+    right: 10,
+    padding: 2
+  },
+  
 });
 
 export default ProductList;

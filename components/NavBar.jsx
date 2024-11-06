@@ -24,6 +24,8 @@ const NavBar = ({ navigation, activeScreen }) => {
         )}
         <Feather name="bell" size={18} color={activeScreen === 'NotificacionesScreen' ? '#000' : '#555'} />
         
+        
+        
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.tab} onPress={() => navigation.navigate('Menu')}>

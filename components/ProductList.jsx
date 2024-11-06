@@ -107,7 +107,7 @@ const ProductList = ({ route, navigation }) => {
         style={styles.botonFavoritos}
         onPress={() => toggleFavorito(item.id)}
       >
-         {item.favorito ? <Ionicons name="heart-sharp" size={24} color="black" /> : <Ionicons name="heart-outline" size={24} color="black" />}
+         {item.favorito ? <Ionicons name="heart-sharp" size={19} color="black" /> : <Ionicons name="heart-outline" size={19} color="black" />}
       </TouchableOpacity>
       <Image source={item.image[0]} style={styles.productImage} />
       <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">

@@ -64,6 +64,10 @@ const NotificacionesScreen = () => {
             <TouchableOpacity style={styles.closeButton} onPress={() => navigation.goBack()}>
                 <Feather name="chevron-left" size={20} color="black" />
             </TouchableOpacity>
+            <TouchableOpacity style={styles.settingsButton} onPress={() => navigation.navigate('NotificacionesConfiguracion')}>
+                <Feather name="settings" size={20} color="black" />
+            </TouchableOpacity>
+
             <Text style={styles.title}>Notificaciones</Text>
             {notificaciones.length > 0 ? (
                 <FlatList
@@ -74,7 +78,9 @@ const NotificacionesScreen = () => {
                     contentContainerStyle={{ paddingBottom: 70 }}
                 />
             ) : (
-                <Text>No hay notificaciones.</Text>
+                <View style={styles.containerEmpty}>
+                <Text style={styles.notificacionesEmpty}>No tienes notificaciones</Text>
+                </View>
             )}
             
             <NavBar 
@@ -98,6 +104,12 @@ const styles = StyleSheet.create({
         top: 35,
         left: 14,
         zIndex: 1,
+    },
+    settingsButton:{
+        position: 'absolute',
+        top: 35,
+        right: 21,
+
     },
     title: {
         fontFamily: 'Figtree-SemiBold',
@@ -153,6 +165,19 @@ const styles = StyleSheet.create({
         fontFamily: 'WorkSans-SemiBold',
         textTransform: 'uppercase',
     },
+    notificacionesEmpty: {
+        fontFamily: 'WorkSans-Medium',
+        fontSize: 18,
+        marginBottom: 10,
+        backgroundColor: 'transparent',
+    },
+    containerEmpty: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        marginTop: -70,
+    }
 });
 
 export default NotificacionesScreen;

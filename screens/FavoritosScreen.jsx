@@ -25,7 +25,7 @@ const FavoritosScreen = ({ navigation }) => {
             style={styles.botonFavoritos}
             onPress={() => toggleFavorito(item.id)}
         >
-        <Ionicons name="heart-sharp" size={24} color="black" />
+        <Ionicons name="heart-sharp" size={19} color="black" />
         </TouchableOpacity>
         <Image source={item.image[0]} style={styles.productImage} />
         <Text style={styles.productName} numberOfLines={1} ellipsizeMode="tail">
@@ -57,7 +57,7 @@ const FavoritosScreen = ({ navigation }) => {
       contentContainerStyle={{ paddingBottom: 70 }}
       ListEmptyComponent={
         <View style={[styles.container, styles.containerEmpty]}>
-            <Text style={styles.emptyList}>No tienes  productos en tu lista</Text>
+            <Text style={styles.emptyList}>No tienes productos en tu lista</Text>
             <Text style={styles.emptySubText}>Descubre todo lo que tenemos para ti</Text>
                 <TouchableOpacity 
                     style={styles.menuButton} 
@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         paddingVertical: 11,
         paddingHorizontal: 25,
-        borderRadius: 4,
         alignItems: 'center',
     },
     menuButtonText: {

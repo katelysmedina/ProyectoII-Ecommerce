@@ -32,7 +32,6 @@ import NotificacionesScreen from './screens/NotificacionesScreen';
 import NotificacionesConfiguracion from './screens/NotificacionesConfiguración';
 import FavoritosScreen from './screens/FavoritosScreen';
 import AyudaScreen from './screens/AyudaScreen';
-
 import { ProductProvider } from './components/ProductProvider'; 
 import { MiBolsaProvider } from './components/MiBolsaProvider';
 import { MisComprasProvider } from './components/MisComprasProvider'; 

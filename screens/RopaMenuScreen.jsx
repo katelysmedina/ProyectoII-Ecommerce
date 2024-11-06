@@ -31,6 +31,7 @@ const RopaMenuScreen = ({ navigation }) => {
         </TouchableOpacity>
         <Text style={styles.headerText}>Ropa</Text>
       </View>
+      
       <View style={styles.textContainer}>
         {ropaCategories.map((category, index) => (
           <TouchableOpacity key={index} onPress={() => navigateToCategory(category)}>

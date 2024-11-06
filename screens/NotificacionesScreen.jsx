@@ -78,7 +78,9 @@ const NotificacionesScreen = () => {
                     contentContainerStyle={{ paddingBottom: 70 }}
                 />
             ) : (
-                <Text>No hay notificaciones.</Text>
+                <View style={styles.containerEmpty}>
+                <Text style={styles.notificacionesEmpty}>No tienes notificaciones</Text>
+                </View>
             )}
             
             <NavBar 
@@ -163,6 +165,19 @@ const styles = StyleSheet.create({
         fontFamily: 'WorkSans-SemiBold',
         textTransform: 'uppercase',
     },
+    notificacionesEmpty: {
+        fontFamily: 'WorkSans-Medium',
+        fontSize: 18,
+        marginBottom: 10,
+        backgroundColor: 'transparent',
+    },
+    containerEmpty: {
+        flex: 1,
+        justifyContent: 'center', 
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        marginTop: -70,
+    }
 });
 
 export default NotificacionesScreen;

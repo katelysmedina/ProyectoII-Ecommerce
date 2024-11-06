@@ -9,13 +9,14 @@ import {
   FlatList,
   Dimensions,
   Modal, 
+  Share, 
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons'; 
+import Feather from '@expo/vector-icons/Feather';
 import NavBar from './NavBar';
 import { MiBolsaContext } from './MiBolsaProvider';
 import Toast from 'react-native-root-toast';
-
 
 const { width } = Dimensions.get('window');
 
@@ -27,7 +28,6 @@ const ProductDetail = ({ route }) => {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false); 
   const [isShippingVisible, setIsShippingVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false); 
-
 
   const { addItemToMiBolsa } = useContext(MiBolsaContext);
 
@@ -50,15 +50,14 @@ const ProductDetail = ({ route }) => {
       comment: 'Súper bonito, me encantó la calidad.',
       rating: 5,
     },
-    
   ];
 
   const addProduct = (product) => {
     Toast.show('Producto añadido a tu carrito', {
       duration: Toast.durations.SHORT,
     });
-    addItemToMiBolsa({...product, selectedSize: selectedSize})
-  }
+    addItemToMiBolsa({...product, selectedSize: selectedSize});
+  };
 
   const handleSizePress = (size) => {
     setSelectedSize(size);
@@ -76,12 +75,23 @@ const ProductDetail = ({ route }) => {
     setModalVisible(!modalVisible);
   };
 
+  
+  const handleShare = async () => {
+    try {
+      await Share.share({
+        message: `¡Mira este producto! ${product.name}\nPrecio: MXN ${product.price.toFixed(2)}\nMás detalles aquí: [enlace a la compra]`,
+      });
+    } catch (error) {
+      console.error('Error al compartir:', error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container}>
         {/* Botón de regreso */}
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={24} color="black" />
+          <Ionicons name="chevron-back" size={20} color="black" />
         </TouchableOpacity>
 
         {/* Carrusel de imágenes */}
@@ -97,6 +107,12 @@ const ProductDetail = ({ route }) => {
         {/* Nombre y precio */}
         <Text style={styles.productName}>{product.name}</Text>
         <Text style={styles.productPrice}>MXN ${product.price.toFixed(2)}</Text>
+
+
+        {/* Botón de compartir */}
+        <TouchableOpacity onPress={handleShare} style={styles.shareButton}>
+          <Feather name="share" size={20} color="black" />
+        </TouchableOpacity>
 
         {/* Color */}
         <View style={styles.colorContainer}>
@@ -189,47 +205,47 @@ const ProductDetail = ({ route }) => {
       </ScrollView>
 
       <Modal
-    animationType="slide"
-    transparent={true}
-    visible={modalVisible}
-    onRequestClose={toggleModal} 
->
-    <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={toggleModal} 
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
             <TouchableOpacity onPress={toggleModal} style={styles.closeButton}>
-                <Ionicons name="close" size={20} color="black" />
+              <Ionicons name="close" size={20} color="black" />
             </TouchableOpacity>
             <Text style={styles.modalTitle}>Comentarios</Text>
-        </View>
-        <FlatList
-    data={reviews}
-    renderItem={({ item }) => (
-        <View style={styles.reviewCard}>
-            <View style={styles.reviewHeader}>
-                <Text style={styles.reviewUser}>{item.user}</Text>
-                <View style={styles.starRating}>
+          </View>
+          <FlatList
+            data={reviews}
+            renderItem={({ item }) => (
+              <View style={styles.reviewCard}>
+                <View style={styles.reviewHeader}>
+                  <Text style={styles.reviewUser}>{item.user}</Text>
+                  <View style={styles.starRating}>
                     {Array.from({ length: item.rating }, (_, index) => (
-                        <Ionicons key={index} name="star" size={16} color="#000" />
+                      <Ionicons key={index} name="star" size={16} color="#000" />
                     ))}
+                  </View>
                 </View>
-                
-            </View>
-            <Text style={styles.reviewComment}>{item.comment}</Text>
-            <View style={styles.separator} />
+                <Text style={styles.reviewComment}>{item.comment}</Text>
+                <View style={styles.separator} />
+              </View>
+            )}
+            keyExtractor={(item) => item.id.toString()}
+            style={styles.reviewsList}
+          />
         </View>
-        
-    )}
-    keyExtractor={(item) => item.id.toString()}
-    style={styles.reviewsList}
-/>
-
-    </View>
-</Modal>
+      </Modal>
 
       <NavBar style={{ zIndex: 2 }} navigation={navigation} />
     </View>
   );
 };
+
+
+
 
 
 const styles = StyleSheet.create({
@@ -452,6 +468,14 @@ reviewComment: {
     backgroundColor: '#ddd', 
     marginTop: 10, 
   },
+
+  shareButton: {
+    position: 'absolute',
+    top: 38, 
+    right: 19, 
+  },
+
+
 });
 
 export default ProductDetail;

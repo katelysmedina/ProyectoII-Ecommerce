@@ -5,7 +5,6 @@ import NavBar from '../components/NavBar';
 
 const CalzadoMenuScreen = ({ navigation }) => {
   const calzadoCategories = [
-    'Lo más vendido', 
     'Botas',
     'Balerinas',
     'Zapatillas',

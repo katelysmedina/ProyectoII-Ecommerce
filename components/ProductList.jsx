@@ -24,6 +24,66 @@ const ProductList = ({ route, navigation }) => {
   const [selectedPriceRange, setSelectedPriceRange] = useState(null); 
 
   const getProductsByCategory = () => {
+    if (category === 'NEW IN') {
+      const newInProductIds = [14, 18, 8, 29, 27, 43];
+      return Object.values(productsByCategory).flatMap((category) =>
+        Array.isArray(category)
+          ? category.filter((product) => newInProductIds.includes(product.id))
+          : Object.values(category).flatMap((subCategory) =>
+              subCategory.filter((product) => newInProductIds.includes(product.id))
+            )
+      );
+    }
+
+    if (category === 'Edición Invierno 24') {
+      const winterProductIds = [3, 4, 5, 27, 28, 29];
+      return Object.values(productsByCategory).flatMap((category) =>
+        Array.isArray(category)
+          ? category.filter((product) => winterProductIds.includes(product.id))
+          : Object.values(category).flatMap((subCategory) =>
+              subCategory.filter((product) => winterProductIds.includes(product.id))
+            )
+      );
+    }
+
+    if (category === 'Lo más vendido') {
+      const masVendidosIds = [10, 6, 23, 15, 38, 29, 44, 47, 46];
+      return Object.values(productsByCategory).flatMap((category) =>
+        Array.isArray(category)
+          ? category.filter((product) => masVendidosIds.includes(product.id))
+          : Object.values(category).flatMap((subCategory) =>
+              subCategory.filter((product) => masVendidosIds.includes(product.id))
+            )
+      );
+    }
+
+    if (category === 'Rebajas') {
+      return [
+        {
+          id: 1,
+          name: 'Abrigo con cinturón de lazo',
+          category: 'Ropa',
+          subcategory: 'Cazadoras y abrigos',
+          
+          price: 899.0,
+          image: [
+            require('../assets/img/ABR1_1.jpeg'),
+            require('../assets/img/ABR1_2.jpeg'),
+            require('../assets/img/ABR1_3.jpeg'),
+            require('../assets/img/ABR1_4.jpeg'),
+            require('../assets/img/ABR1_5.jpeg'),
+          ],
+          color: 'Negro',
+          characteristics: [
+            'Abrigo largo en tela tejida. Modelo con solapas de pico y botones de presión ocultos. Cinturón de lazo extraíble ancho en la cintura. Bolsillos laterales de ojal en la parte posterior.',
+          ],
+          sizes: ['XCH', 'CH', 'M', 'G', 'XG'],
+          favorito: false,
+        },
+  
+      ];
+    }
+    
     switch (category) {
       case 'Cazadoras y abrigos':
         return productsByCategory.Ropa['Cazadoras y abrigos'];
@@ -114,6 +174,7 @@ const ProductList = ({ route, navigation }) => {
         {item.name}
       </Text>
       <Text style={styles.productPrice}>MXN ${item.price.toFixed(2)}</Text>
+
     </TouchableOpacity>
   );
   
@@ -384,11 +445,11 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     marginTop: 5,
     paddingHorizontal: 8,
-    fontFamily: 'WorkSans',
+    fontFamily: 'WorkSans-Medium',
     width: '100%',
   },
   productPrice: {
-    fontFamily: 'WorkSans-Regular',
+    fontFamily: 'WorkSans-Medium',
     fontSize: 14,
     fontWeight: 'bold',
     marginTop: 2,

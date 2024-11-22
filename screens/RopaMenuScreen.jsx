@@ -5,8 +5,6 @@ import NavBar from '../components/NavBar';
 
 const RopaMenuScreen = ({ navigation }) => {
   const ropaCategories = [
-    'Lo más vendido', 
-    'Edición Denim', 
     'Cazadoras y abrigos', 
     'Blazers', 
     'Jeans', 

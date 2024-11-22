@@ -77,40 +77,42 @@ export const ProductProvider = ({ children }) => {
     },
     Calzado: {
     Balerinas: [
-        { id: 38, name: 'Balerinas Mary Jane', category: 'Calzado', subcategory: 'Balerinas', price: 599.00, image: [require('../assets/img/BAL1_1.jpeg'), require('../assets/img/BAL1_2.jpeg'), require('../assets/img/BAL1_3.jpeg')], color:'Negro', characteristics: ['Balerinas con diseño Mary Jane. Modelo con frente cuadrado y correa gruesa con hebilla de metal.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-        { id: 39, name: 'Balerinas Mary Jane', category: 'Calzado', subcategory: 'Balerinas', price: 599.00, image: [require('../assets/img/BAL2_1.jpeg'), require('../assets/img/BAL2_2.jpeg'), require('../assets/img/BAL2_3.jpeg')], color:'Plateado', characteristics: ['Balerinas con diseño Mary Jane. Modelo con frente cuadrado y correa gruesa con hebilla de metal.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-        { id: 40, name: 'Balerinas en malla', category: 'Calzado', subcategory: 'Balerinas', price: 799.00, image: [require('../assets/img/BAL3_1.jpeg'), require('../assets/img/BAL3_2.jpeg'), require('../assets/img/BAL3_3.jpeg'), ], color:'Rojo', characteristics: ['Balerinas Mary Jane en malla y tela revestida con un acabado metálico brillante. Punta cincelada y doble correa estrella con hebilla de metal.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
+        { id: 38, name: 'Balerinas Mary Jane', category: 'Calzado', subcategory: 'Balerinas', price: 599.00, image: [require('../assets/img/BAL1_1.jpeg'), require('../assets/img/BAL1_2.jpeg'), require('../assets/img/BAL1_3.jpeg')], color:'Negro', characteristics: ['Balerinas con diseño Mary Jane. Modelo con frente cuadrado y correa gruesa con hebilla de metal.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
+        { id: 39, name: 'Balerinas Mary Jane', category: 'Calzado', subcategory: 'Balerinas', price: 599.00, image: [require('../assets/img/BAL2_1.jpeg'), require('../assets/img/BAL2_2.jpeg'), require('../assets/img/BAL2_3.jpeg')], color:'Plateado', characteristics: ['Balerinas con diseño Mary Jane. Modelo con frente cuadrado y correa gruesa con hebilla de metal.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
+        { id: 40, name: 'Balerinas en malla', category: 'Calzado', subcategory: 'Balerinas', price: 799.00, image: [require('../assets/img/BAL3_1.jpeg'), require('../assets/img/BAL3_2.jpeg'), require('../assets/img/BAL3_3.jpeg'), ], color:'Rojo', characteristics: ['Balerinas Mary Jane en malla y tela revestida con un acabado metálico brillante. Punta cincelada y doble correa estrella con hebilla de metal.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
     ],
 
     Loafers: [
-      { id: 41, name: 'Loafers de suela gruesa', category: 'Calzado', subcategory: 'Loafers', price: 699.00, image: [require('../assets/img/LOA1_1.jpeg'), require('../assets/img/LOA1_2.jpeg') ], color:'Negro', characteristics: ['Mocasines con trabilla decorativa al frente. Forro de satín. Altura de las suelas de 4 cm.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
+      { id: 41, name: 'Loafers de suela gruesa', category: 'Calzado', subcategory: 'Loafers', price: 699.00, image: [require('../assets/img/LOA1_1.jpeg'), require('../assets/img/LOA1_2.jpeg') ], color:'Negro', characteristics: ['Mocasines con trabilla decorativa al frente. Forro de satín. Altura de las suelas de 4 cm.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
     ],
 
     Botas: [
-      { id: 42, name: 'Botas tacón ancho', category: 'Calzado', subcategory: 'Botas', price: 839.00, image: [require('../assets/img/BOT1_1.jpeg'), require('../assets/img/BOT1_2.jpeg'), require('../assets/img/BOT1_3.jpeg') ], color:'Café oscuro', characteristics: ['Botas de tela afieltrada con frente cuadrado. Tacón cuadrado de 4 cm. Forro de punto y plantillas de piel.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-      { id: 43, name: 'Botas punta fina con tacón dorado', category: 'Calzado', subcategory: 'Botas', price: 969.00, image: [require('../assets/img/BOT2_1.jpeg'), require('../assets/img/BOT2_2.jpeg'), require('../assets/img/BOT2_3.jpeg')], color:'Negro', characteristics: ['Botas de piel con frente en punta y tacón con detalle. Forro y plantillas de punto.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
+      { id: 42, name: 'Botas tacón ancho', category: 'Calzado', subcategory: 'Botas', price: 839.00, image: [require('../assets/img/BOT1_1.jpeg'), require('../assets/img/BOT1_2.jpeg'), require('../assets/img/BOT1_3.jpeg') ], color:'Café oscuro', characteristics: ['Botas de tela afieltrada con frente cuadrado. Tacón cuadrado de 4 cm. Forro de punto y plantillas de piel.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
+      { id: 43, name: 'Botas punta fina con tacón dorado', category: 'Calzado', subcategory: 'Botas', price: 969.00, image: [require('../assets/img/BOT2_1.jpeg'), require('../assets/img/BOT2_2.jpeg'), require('../assets/img/BOT2_3.jpeg')], color:'Negro', characteristics: ['Botas de piel con frente en punta y tacón con detalle. Forro y plantillas de punto.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
     ],
 
     Zapatillas: [
-      { id: 44, name: 'Zapatillas kitten destalonado', category: 'Calzado', subcategory: 'Zapatillas', price: 499.00, image: [require('../assets/img/ZAP1_1.jpeg'), require('../assets/img/ZAP1_2.jpeg') ], color:'Negro', characteristics: ['Zapatillas de piel. Modelo con frente en punta y correa cruzada y en el tobillo. Tacón fino de 5 cm.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-      { id: 45, name: 'Mary Jane tacón ancho', category: 'Calzado', subcategory: 'Zapatillas', price: 559.00, image: [require('../assets/img/ZAP2_1.jpeg'), require('../assets/img/ZAP2_2.jpeg')], color:'Negro', characteristics: ['Mary Janes en piel. Frente cuadradi y tacón de bloque forrado. Corres ajustables con hebillas de metal. Plantillas de piel.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false },
+      { id: 44, name: 'Zapatillas kitten destalonado', category: 'Calzado', subcategory: 'Zapatillas', price: 499.00, image: [require('../assets/img/ZAP1_1.jpeg'), require('../assets/img/ZAP1_2.jpeg') ], color:'Negro', characteristics: ['Zapatillas de piel. Modelo con frente en punta y correa cruzada y en el tobillo. Tacón fino de 5 cm.'], sizes: ['22', '23', '24', '25', '26'], favorito: false},
+      { id: 45, name: 'Mary Jane tacón ancho', category: 'Calzado', subcategory: 'Zapatillas', price: 559.00, image: [require('../assets/img/ZAP2_1.jpeg'), require('../assets/img/ZAP2_2.jpeg')], color:'Negro', characteristics: ['Mary Janes en piel. Frente cuadradi y tacón de bloque forrado. Corres ajustables con hebillas de metal. Plantillas de piel.'], sizes: ['22', '23', '24', '25', '26'], favorito: false },
     ],
   },
     Bolsos: [
-      { id: 46, name: 'Bolso bandolera efecto piel', category: 'Bolsos', subcategory: '', price: 599.00, image: [require('../assets/img/BOL1_1.jpeg'), require('../assets/img/BOL1_2.jpeg'), require('../assets/img/BOL1_3.jpeg'), ], color:'Borgoña', characteristics: ['Bolso bandolera efecto piel. Modelo con zíper superior y un compartimiento interior con zíper. Correa ajustable. Forrado.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-      { id: 47, name: 'Bolso bandolera bucket', category: 'Bolsos', subcategory: '', price: 599.00, image: [require('../assets/img/BOL2_1.jpeg'), require('../assets/img/BOL2_2.jpeg')], color:'Negro', characteristics: ['Bolso bucket efecto piel. Asa ajustable con hebillas en los laterales. Cierre oculto magnético. Forrado.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-      { id: 48, name: 'Bolso bandolera liso', category: 'Bolsos', subcategory: '', price: 699.00, image: [require('../assets/img/BOL3_1.jpeg'), require('../assets/img/BOL3_2.jpeg')], color:'Borgoña', characteristics: ['Bolso bandolera efecto piel. Modelo con solapa y cierre magnético oculto. Un compartimiento interior con zíper y correa ajustable. Forrado. '], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
-      { id: 49, name: 'Bolso crossbody', category: 'Bolsos', subcategory: '', price: 499.00, image: [require('../assets/img/BOL4_1.jpeg'), require('../assets/img/BOL4_2.jpeg') ], color:'Negro', characteristics: ['Bolso crossbody efecto piel. Modelo con zíper superior y correa ajustable con hebillas de metal. Forrado.'], sizes: ['XCH', 'CH', 'M', 'G', 'XG'], favorito: false},
+      { id: 46, name: 'Bolso bandolera efecto piel', category: 'Bolsos', subcategory: '', price: 599.00, image: [require('../assets/img/BOL1_1.jpeg'), require('../assets/img/BOL1_2.jpeg'), require('../assets/img/BOL1_3.jpeg'), ], color:'Borgoña', characteristics: ['Bolso bandolera efecto piel. Modelo con zíper superior y un compartimiento interior con zíper. Correa ajustable. Forrado.'], sizes: [], favorito: false},
+      { id: 47, name: 'Bolso bandolera bucket', category: 'Bolsos', subcategory: '', price: 599.00, image: [require('../assets/img/BOL2_1.jpeg'), require('../assets/img/BOL2_2.jpeg')], color:'Negro', characteristics: ['Bolso bucket efecto piel. Asa ajustable con hebillas en los laterales. Cierre oculto magnético. Forrado.'], sizes: [], favorito: false},
+      { id: 48, name: 'Bolso bandolera liso', category: 'Bolsos', subcategory: '', price: 699.00, image: [require('../assets/img/BOL3_1.jpeg'), require('../assets/img/BOL3_2.jpeg')], color:'Borgoña', characteristics: ['Bolso bandolera efecto piel. Modelo con solapa y cierre magnético oculto. Un compartimiento interior con zíper y correa ajustable. Forrado. '], sizes: [], favorito: false},
+      { id: 49, name: 'Bolso crossbody', category: 'Bolsos', subcategory: '', price: 499.00, image: [require('../assets/img/BOL4_1.jpeg'), require('../assets/img/BOL4_2.jpeg') ], color:'Negro', characteristics: ['Bolso crossbody efecto piel. Modelo con zíper superior y correa ajustable con hebillas de metal. Forrado.'], sizes: [], favorito: false},
   ],
 });
 
 const getProductsByCategoryAndSubcategory = (category, subcategory) => {
-  if (!productsByCategory[category]) return []; 
+  if (!productsByCategory[category]) return [];
+
+
   if (subcategory) {
     return productsByCategory[category][subcategory] || []; 
   }
 
-
+  
   return Object.values(productsByCategory[category]).flat(); 
 };
 
